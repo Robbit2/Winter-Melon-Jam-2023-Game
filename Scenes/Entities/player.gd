@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var player = $"."
 @onready var sprite = $Sprite
 @onready var coyote_timer : Timer = $Coyote
 @onready var dash_timeout_timer : Timer = $DashTimeout
@@ -20,6 +21,7 @@ var can_jump : bool = false
 var can_air_jump : bool = false
 @export var action : String = "Idle"
 
+var dead : bool = false
 var can_dash : bool = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -27,7 +29,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func set_action(_action):
 	action = str(_action)
-	$Sprite.animation = action
+	sprite.play(action)
 	return true
 
 
@@ -54,15 +56,30 @@ func _physics_process(delta):
 	# if the player is falling -> air jump
 	if Input.is_action_just_pressed("jump"):
 		if not is_falling and can_jump:
+			set_action("Jump")
 			can_jump = false
 			is_falling = true # a bit hacky, but we don't want coyote time to start on jump
 			can_air_jump = true
 			velocity.y = JUMP_VELOCITY
 		elif is_falling and can_air_jump: # charm requirement can be placed here
+			set_action("Jump")
 			can_air_jump = false
 			velocity.y = AIR_JUMP_VELOCITY
 
 	var direction = Input.get_axis("left", "right")
+	# changes player to running animation if they are moving
+	if not is_falling:
+		if direction:
+			set_action("Run")
+		else:
+			set_action("Idle")
+	else:
+		pass
+	# flips the sprite if player is moving left and unflips if moving right
+	if direction < 0:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 	# using move_toward for everything (not just deceleration) makes the movement more weighty
 	# it also allows us to just add velocity to the dash and have it move smoothly into normal speed
 	velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / WEIGHT_FACTOR)
