@@ -44,6 +44,10 @@ dash={
 ]
 }
 
+[physics]
+
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmfnri103q43r"]
+[gd_scene load_steps=6 format=3 uid="uid://cmfnri103q43r"]
 
 [ext_resource type="Texture2D" uid="uid://drf6jbx8po8y0" path="res://Assets/player.jpg" id="1_tgary"]
 [ext_resource type="Script" path="res://Scenes/Entities/player.gd" id="1_ul8et"]
+[ext_resource type="Script" path="res://Scripts/CameraFollow.gd" id="3_qbgvc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_igojk"]
 animations = [{
@@ -29,3 +30,12 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_8v7ij")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
+script = ExtResource("3_qbgvc")
+
+[node name="Coyote" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="Coyote" to="." method="_on_coyote_timeout"]
