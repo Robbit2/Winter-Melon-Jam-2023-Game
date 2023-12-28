@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 @onready var sprite = $Sprite
-@onready var coyote_timer = $Coyote
-@onready var dash_timeout_timer = $DashTimeout
+@onready var coyote_timer : Timer = $Coyote
+@onready var dash_timeout_timer : Timer = $DashTimeout
+@onready var invincibility : Timer = $Invincibility
 
 @export var SPEED : float = 750.0
 @export var JUMP_VELOCITY : float = -800.0
@@ -71,6 +72,7 @@ func _physics_process(delta):
 		# up/down is inverted so DASH_SPEED_VERTICAL can have a positive sign
 		var dash_direction = Input.get_vector("left", "right", "up", "down").normalized()
 		dash_timeout_timer.start()
+		invincibility.start()
 		can_dash = false
 		# resetting vertical speed is fine, resetting horizontal speed feels wrong
 		velocity.x += sign(dash_direction.x) * DASH_SPEED_HORIZONTAL
@@ -85,3 +87,12 @@ func _on_coyote_timeout():
 # can add some sound cue or something when dash is ready
 func _on_dash_timeout():
 	can_dash = true
+
+func hit(enemy_pos_x : float, knockback : float):
+	if invincibility.is_stopped():
+		var dir : Vector2 = Vector2(sign(position.x - enemy_pos_x), -1.0).normalized()
+		velocity = dir * Vector2(knockback * 5.0, knockback)
+		invincibility.start()
+
+func _on_invincibility_timeout():
+	pass # Replace with function body.
