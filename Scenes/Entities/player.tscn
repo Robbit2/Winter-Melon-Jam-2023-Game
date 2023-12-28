@@ -96,8 +96,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 
-"texture": ExtResource("1_tgary")
-
 "texture": SubResource("AtlasTexture_g537d")
 }, {
 "duration": 1.0,
