@@ -64,7 +64,8 @@ func _physics_process(delta):
 		var dash_direction = Input.get_vector("left", "right", "up", "down").normalized()
 		dash_timeout_timer.start()
 		can_dash = false
-		velocity.x = sign(dash_direction.x) * DASH_SPEED_HORIZONTAL
+		# resetting vertical speed is fine, resetting horizontal speed feels wrong
+		velocity.x += sign(dash_direction.x) * DASH_SPEED_HORIZONTAL
 		velocity.y = sign(dash_direction.y) * DASH_SPEED_VERTICAL
 	
 	move_and_slide()
