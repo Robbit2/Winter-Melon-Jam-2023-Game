@@ -17,11 +17,18 @@ extends CharacterBody2D
 var is_falling : bool = true
 var can_jump : bool = false
 var can_air_jump : bool = false
+@export var action : String = "Idle"
 
 var can_dash : bool = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func set_action(_action):
+	action = str(_action)
+	$Sprite.animation = action
+	return true
+
 
 func _physics_process(delta):
 	
@@ -58,6 +65,7 @@ func _physics_process(delta):
 	# using move_toward for everything (not just deceleration) makes the movement more weighty
 	# it also allows us to just add velocity to the dash and have it move smoothly into normal speed
 	velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / WEIGHT_FACTOR)
+
 
 	if Input.is_action_just_pressed("dash") and can_dash:
 		# up/down is inverted so DASH_SPEED_VERTICAL can have a positive sign
