@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var follow_speed : float = 20.0
+@export var follow_speed : float = 15.0
 
 func _ready():
 	position = get_parent().position
