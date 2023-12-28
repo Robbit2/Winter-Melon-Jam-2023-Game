@@ -21,7 +21,11 @@ size = Vector2(16, 16)
 script = ExtResource("1_ul8et")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_igojk")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_8v7ij")
+
+[node name="Camera2D" type="Camera2D" parent="."]
