@@ -685,7 +685,7 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(346, 165)
 
 [node name="EnemyBasic" parent="." instance=ExtResource("3_dpc6p")]
-position = Vector2(1068, -264)
+position = Vector2(1087, 319)
 
 [node name="Smoke Puff" parent="." instance=ExtResource("3_0n4j8")]
 visible = false

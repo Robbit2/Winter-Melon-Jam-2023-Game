@@ -167,7 +167,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_02ebn")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Run",
 "speed": 5.0
 }]
 
@@ -182,7 +182,7 @@ script = ExtResource("1_ul8et")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_igojk")
-animation = &"Idle"
+animation = &"Run"
 autoplay = "Idle"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
