@@ -15,10 +15,6 @@ run/main_scene="res://kamlevel/kamlevel.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[display]
-
-window/stretch/scale=4.0
-
 [input]
 
 up={
