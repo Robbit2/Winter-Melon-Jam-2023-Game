@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var coyote_timer : Timer = $Coyote
 @onready var dash_timeout_timer : Timer = $DashTimeout
 @onready var invincibility : Timer = $Invincibility
+@onready var health_label = $"../UI/HealthPanel/HealthLabel"
 
 @export var SPEED : float = 750.0
 @export var JUMP_VELOCITY : float = -800.0
@@ -23,6 +24,8 @@ var can_air_jump : bool = false
 
 var dead : bool = false
 var can_dash : bool = true
+var charms : int = 1
+var health : int = 3
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -61,7 +64,7 @@ func _physics_process(delta):
 			is_falling = true # a bit hacky, but we don't want coyote time to start on jump
 			can_air_jump = true
 			velocity.y = JUMP_VELOCITY
-		elif is_falling and can_air_jump: # charm requirement can be placed here
+		elif is_falling and can_air_jump and charms >= 1: # charm requirement can be placed here
 			set_action("Jump")
 			can_air_jump = false
 			velocity.y = AIR_JUMP_VELOCITY
@@ -85,7 +88,7 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / WEIGHT_FACTOR)
 
 
-	if Input.is_action_just_pressed("dash") and can_dash:
+	if Input.is_action_just_pressed("dash") and can_dash and charms >= 2:
 		# up/down is inverted so DASH_SPEED_VERTICAL can have a positive sign
 		var dash_direction = Input.get_vector("left", "right", "up", "down").normalized()
 		dash_timeout_timer.start()
@@ -110,6 +113,13 @@ func hit(enemy_pos_x : float, knockback : float):
 		var dir : Vector2 = Vector2(sign(position.x - enemy_pos_x), -1.0).normalized()
 		velocity = dir * Vector2(knockback * 5.0, knockback)
 		invincibility.start()
+	health -= 1
+	health_label.update(health)
+	return true
+
+func getCharm():
+	charms += 1
+	return true
 
 func _on_invincibility_timeout():
 	pass # Replace with function body.
