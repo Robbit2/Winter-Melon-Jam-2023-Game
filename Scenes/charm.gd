@@ -15,6 +15,6 @@ func _process(_delta):
 	if left.is_colliding():
 		charm.position.x = move_toward(charm.position.x, player.position.x, .5)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	queue_free()
 	player.charms += 1
