@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy868f58go36m"]
+[gd_scene load_steps=18 format=3 uid="uid://cy868f58go36m"]
 
 [ext_resource type="Texture2D" uid="uid://bva7wt454rqie" path="res://Assets/Tilesets/Mossy - Decorations&Hazards.png" id="1_r7uv3"]
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="2_icani"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1q71nbgxbl4" path="res://Scenes/Entities/EnemyBasic.tscn" id="3_dpc6p"]
 [ext_resource type="Texture2D" uid="uid://dg27anqi4br1y" path="res://Assets/Tilesets/Mossy - MossyHills.png" id="3_enqdu"]
 [ext_resource type="Texture2D" uid="uid://buw6l02o61cvh" path="res://Assets/Tilesets/Mossy - Hanging Plants.png" id="4_21xha"]
+[ext_resource type="PackedScene" uid="uid://c21b5u7a3bg7d" path="res://Scenes/Entities/EnemyRanged.tscn" id="7_jmnrv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lasch"]
 load_path = "res://.godot/imported/Mossy - TileSet.png-84b91f76700dacd0253d4d7e0dafe65c.ctex"
@@ -741,7 +742,10 @@ layer_2/tile_data = PackedInt32Array(327692, 262149, 3, 262157, 327685, 2, 32769
 position = Vector2(346, 165)
 
 [node name="EnemyBasic" parent="." instance=ExtResource("3_dpc6p")]
-position = Vector2(1087, 319)
+position = Vector2(2099, 378)
+
+[node name="EnemyRanged" parent="." instance=ExtResource("7_jmnrv")]
+position = Vector2(1133, 289)
 
 [node name="Smoke Puff" parent="." instance=ExtResource("3_0n4j8")]
 visible = false
@@ -765,4 +769,3 @@ theme_override_font_sizes/font_size = 25
 text = "Health: 3"
 horizontal_alignment = 1
 vertical_alignment = 1
-

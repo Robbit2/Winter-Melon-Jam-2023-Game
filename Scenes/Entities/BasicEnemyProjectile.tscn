@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://djaigei5f4ug4"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/BasicEnemyProjectile.gd" id="1_fb1n3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isoyu"]
+size = Vector2(10, 10)
+
+[sub_resource type="Gradient" id="Gradient_qtxah"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bdaev"]
+gradient = SubResource("Gradient_qtxah")
+width = 10
+height = 10
+fill_from = Vector2(0, 1)
+
+[node name="BasicEnemyProjectile" type="Area2D"]
+script = ExtResource("1_fb1n3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_isoyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_bdaev")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
