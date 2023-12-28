@@ -1,5 +1,4 @@
 [gd_scene load_steps=19 format=3 uid="uid://cy868f58go36m"]
-[gd_scene load_steps=18 format=3 uid="uid://cy868f58go36m"]
 
 [ext_resource type="Texture2D" uid="uid://bva7wt454rqie" path="res://Assets/Tilesets/Mossy - Decorations&Hazards.png" id="1_r7uv3"]
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="2_icani"]
