@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Winter Melon Jam 2023"
+config/name="MelonJam"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
