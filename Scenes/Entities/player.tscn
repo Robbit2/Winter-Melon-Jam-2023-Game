@@ -1,6 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://cmfnri103q43r"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/player.gd" id="1_ul8et"]
+[ext_resource type="Script" path="res://Scripts/CameraFollow.gd" id="3_qbgvc"]
 [ext_resource type="Texture2D" uid="uid://djyw2s0gintqg" path="res://Assets/Player/Animations/Meow-Knight_Idle.png" id="2_v7ahh"]
 [ext_resource type="Texture2D" uid="uid://bpfnxcptuh84v" path="res://Assets/Player/Animations/Meow-Knight_Jump.png" id="3_1t1i3"]
 [ext_resource type="Texture2D" uid="uid://bn70jb84ngdgt" path="res://Assets/Player/Animations/Meow-Knight_Run.png" id="4_lb3rp"]
@@ -221,3 +222,18 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_8v7ij")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
+script = ExtResource("3_qbgvc")
+
+[node name="Coyote" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.05
+one_shot = true
+
+[node name="DashTimeout" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.8
+one_shot = true
+
+[connection signal="timeout" from="Coyote" to="." method="_on_coyote_timeout"]
+[connection signal="timeout" from="DashTimeout" to="." method="_on_dash_timeout"]
