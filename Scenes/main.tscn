@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy868f58go36m"]
+[gd_scene load_steps=16 format=3 uid="uid://cy868f58go36m"]
 
 [ext_resource type="Texture2D" uid="uid://bva7wt454rqie" path="res://Assets/Tilesets/Mossy - Decorations&Hazards.png" id="1_r7uv3"]
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="2_icani"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://br5v7n6m7ski2" path="res://Assets/Tilesets/Mossy - BackgroundDecoration.png" id="2_vc52k"]
 [ext_resource type="PackedScene" uid="uid://cqajl44q4ynca" path="res://Scenes/VFX/smoke_puff.tscn" id="3_0n4j8"]
 [ext_resource type="Texture2D" uid="uid://dg27anqi4br1y" path="res://Assets/Tilesets/Mossy - MossyHills.png" id="3_enqdu"]
+[ext_resource type="Texture2D" uid="uid://buw6l02o61cvh" path="res://Assets/Tilesets/Mossy - Hanging Plants.png" id="4_21xha"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lasch"]
 load_path = "res://.godot/imported/Mossy - TileSet.png-84b91f76700dacd0253d4d7e0dafe65c.ctex"
@@ -658,6 +659,60 @@ texture = ExtResource("3_enqdu")
 3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apo3g"]
+texture = ExtResource("4_21xha")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+0:4/0 = 0
+0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:4/0/physics_layer_0/angular_velocity = 0.0
+1:4/0 = 0
+1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:4/0/physics_layer_0/angular_velocity = 0.0
+2:4/0 = 0
+2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:4/0/physics_layer_0/angular_velocity = 0.0
+3:4/0 = 0
+3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:4/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_ib8xp"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_j7teu")
@@ -665,6 +720,7 @@ sources/3 = SubResource("TileSetAtlasSource_6h7fd")
 sources/4 = SubResource("TileSetAtlasSource_563d7")
 sources/5 = SubResource("TileSetAtlasSource_2dxts")
 sources/6 = SubResource("TileSetAtlasSource_58tlw")
+sources/7 = SubResource("TileSetAtlasSource_apo3g")
 
 [node name="Main" type="Node2D"]
 
@@ -684,14 +740,35 @@ layer_0/tile_data = PackedInt32Array(458752, 65536, 1, 524288, 65536, 1, 589824,
 layer_1/name = "Decor"
 layer_1/y_sort_origin = -2
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(524321, 196612, 1, 524322, 262148, 1)
+layer_1/tile_data = PackedInt32Array(-131067, 7, 0, -65531, 7, 1, 5, 7, 2, -131066, 7, 3, -65530, 7, 4, 6, 7, 2, -131065, 131079, 0, -65529, 131079, 1, -131070, 7, 0, -65534, 7, 1, -131069, 65543, 0, -65533, 65543, 1, 2, 7, 2, -131068, 65543, 3, -65532, 65543, 4, 4, 196615, 1)
 layer_2/name = "Background"
 layer_2/z_index = -1
-layer_2/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array(327692, 262149, 3, 262157, 327685, 2, 327693, 327685, 3, 262158, 393221, 2, 327694, 393221, 3, 262159, 458757, 2, 327695, 458757, 3, 65554, 131077, 0, 65555, 196613, 0, 131090, 131077, 1, 196626, 131077, 2, 262162, 131077, 3, 327698, 131077, 4, 131091, 196613, 1, 196627, 196613, 2, 262163, 196613, 3, 327699, 196613, 4, -196599, 5, 0, -131063, 5, 1, -65527, 5, 2, 9, 5, 3, 65545, 5, 4, 131081, 5, 5, 196617, 5, 6, 262153, 5, 7, -196598, 65541, 0, -131062, 65541, 1, -65526, 65541, 2, 10, 65541, 3, 65546, 65541, 4, 131082, 65541, 5, 196618, 65541, 6, 262154, 65541, 7, 458754, 262149, 7, 327683, 327685, 5, 393219, 327685, 6, 458755, 327685, 7, 262148, 393221, 4, 327684, 393221, 5, 393220, 393221, 6, 458756, 393221, 7, 262149, 458757, 4, 327685, 458757, 5, 393221, 458757, 6, 458757, 458757, 7)
 
 [node name="Player" parent="." instance=ExtResource("2_icani")]
+z_index = 3
 position = Vector2(254, 380)
 
 [node name="Smoke Puff" parent="." instance=ExtResource("3_0n4j8")]
 visible = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthPanel" type="Panel" parent="UI"]
+anchors_preset = -1
+anchor_right = 0.003
+anchor_bottom = 0.003
+offset_right = 123.16
+offset_bottom = 47.84
+
+[node name="HealthLabel" type="Label" parent="UI/HealthPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 78.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 25
+text = "Health: 3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
