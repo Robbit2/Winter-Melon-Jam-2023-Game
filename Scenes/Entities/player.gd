@@ -7,6 +7,10 @@ extends CharacterBody2D
 @onready var invincibility : Timer = $Invincibility
 @onready var health_label = $"../UI/HealthPanel/HealthLabel"
 @onready var death_screen = $"../UI/DeathScreen"
+@onready var attack_duration: Timer = $AttackDuration
+@onready var attack_cooldown : Timer = $AttackCooldown
+@onready var swordbox = $Sprite/Area2D/Swordbox
+
 
 @export var SPEED : float = 750.0
 @export var JUMP_VELOCITY : float = -800.0
@@ -18,9 +22,14 @@ extends CharacterBody2D
 ## How heavy the Movement feels (influences dash)
 @export_range (0.1, 10.0) var WEIGHT_FACTOR : float = 3.0
 
+## change the offset of the sprite
+var offset_attack = [-10, -5]
+var offset_default = [0, 0]
+
 var is_falling : bool = true
 var can_jump : bool = false
 var can_air_jump : bool = false
+var can_attack : bool = true
 @export var action : String = "Idle"
 
 var dead : bool = false
@@ -31,11 +40,27 @@ var health : int = 3
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func attack():
+	swordbox.disabled = false
+	print("go")
+	await get_tree().create_timer(0.7, false, false, true).timeout
+	print("yay")
+	swordbox.disabled = true
+	set_action("Idle")
+	can_attack = true
+
 func set_action(_action):
+	if action == "Attack":
+		attack()
+		sprite.offset[0] = offset_attack[0]
+		sprite.offset[1] = offset_attack[1]
+	else:
+		# change offset because animation is bigger for attack
+		sprite.offset[0] = offset_default[0]
+		sprite.offset[1] = offset_default[1]
 	action = str(_action)
 	sprite.play(action)
 	return true
-
 
 func _physics_process(delta):
 	
@@ -69,10 +94,14 @@ func _physics_process(delta):
 			set_action("Jump")
 			can_air_jump = false
 			velocity.y = AIR_JUMP_VELOCITY
-
+	
+	if Input.is_action_just_pressed("attack") and not dead and can_attack:
+		can_attack = false
+		set_action("Attack")
+	
 	var direction = Input.get_axis("left", "right")
 	# changes player to running animation if they are moving
-	if not is_falling:
+	if not is_falling and action != "Attack":
 		if direction:
 			set_action("Run")
 		else:
