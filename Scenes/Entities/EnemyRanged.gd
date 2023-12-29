@@ -5,7 +5,7 @@ extends Area2D
 @onready var floor_detect : RayCast2D = $Floor
 @onready var shoot_cooldown : Timer = $ShootCooldown
 
-enum STATE {IDLE, AGGRESSIVE}
+enum STATE {IDLE, AGGRESSIVE, DYING}
 enum DIRECTION {LEFT, RIGHT}
 
 @export var WALK_SPEED : float = 200.0
@@ -64,12 +64,18 @@ func shoot():
 		bullet.direction = dir
 		get_tree().get_root().add_child(bullet)
 
+func die():
+	state = STATE.DYING
+
 func _physics_process(delta):
 	match(state):
 		STATE.IDLE:
 			walk(delta)
 		STATE.AGGRESSIVE:
 			shoot()
+		STATE.DYING:
+			# do some death animation here instead of just removing
+			queue_free()
 	if front_detect.is_colliding():
 		state = STATE.AGGRESSIVE
 		player = front_detect.get_collider()

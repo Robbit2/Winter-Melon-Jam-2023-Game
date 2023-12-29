@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://buw6l02o61cvh" path="res://Assets/Tilesets/Mossy - Hanging Plants.png" id="4_21xha"]
 [ext_resource type="PackedScene" uid="uid://c21b5u7a3bg7d" path="res://Scenes/Entities/EnemyRanged.tscn" id="7_jmnrv"]
 [ext_resource type="Script" path="res://Scenes/HealthLabel.gd" id="8_etnc1"]
-[ext_resource type="PackedScene" uid="uid://bg4tr04lut1fq" path="res://Scenes/charm.tscn" id="9_cdadq"]
+[ext_resource type="PackedScene" path="res://Scenes/charm.tscn" id="9_cdadq"]
 [ext_resource type="Script" path="res://Scenes/Menu button.gd" id="10_i5nvf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lasch"]

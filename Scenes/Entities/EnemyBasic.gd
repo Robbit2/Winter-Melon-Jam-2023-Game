@@ -5,7 +5,7 @@ extends Area2D
 @onready var floor_detect : RayCast2D = $Floor
 @onready var aggression : Timer = $Aggression
 
-enum STATE {IDLE, AGGRESSIVE}
+enum STATE {IDLE, AGGRESSIVE, DYING}
 enum DIRECTION {LEFT, RIGHT}
 
 @export var WALK_SPEED : float = 100.0
@@ -53,12 +53,18 @@ func run(delta):
 	if floor_detect.is_colliding() and floor_detect.get_collider().name != "Player" and abs(player.position.x - position.x) > RUN_SPEED * delta:
 		position.x += dir * RUN_SPEED * delta
 
+func die():
+	state = STATE.DYING
+
 func _physics_process(delta):
 	match(state):
 		STATE.IDLE:
 			walk(delta)
 		STATE.AGGRESSIVE:
 			run(delta)
+		STATE.DYING:
+			# do some death animation here instead of instantly removing
+			queue_free()
 	if front_detect.is_colliding():
 		player = front_detect.get_collider()
 		state = STATE.AGGRESSIVE
@@ -79,8 +85,10 @@ func _on_aggression_timeout():
 
 func _on_body_entered(body):
 	player = body
+	
 	player_inside = true
 
 
 func _on_body_exited(_body):
 	player_inside = false
+
