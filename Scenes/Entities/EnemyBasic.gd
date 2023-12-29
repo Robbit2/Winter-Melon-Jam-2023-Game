@@ -91,4 +91,3 @@ func _on_body_entered(body):
 
 func _on_body_exited(_body):
 	player_inside = false
-
