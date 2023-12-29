@@ -5,7 +5,9 @@ extends Area2D
 @onready var floor_detect : RayCast2D = $Floor
 @onready var shoot_cooldown : Timer = $ShootCooldown
 
-enum STATE {IDLE, AGGRESSIVE, DYING}
+@onready var sprite : AnimatedSprite2D = $Sprite2D
+
+enum STATE {IDLE, SHOOTING, AGGRESSIVE, DYING}
 enum DIRECTION {LEFT, RIGHT}
 
 @export var WALK_SPEED : float = 200.0
@@ -31,16 +33,37 @@ func _ready():
 	look_distance = front_detect.target_position.x
 	Projectile = load("res://Scenes/Entities/BasicEnemyProjectile.tscn")
 
+func _process(_delta):
+	if sprite.frame > sprite.sprite_frames.get_frame_count("Shoot")-4 and sprite.animation == "Shoot" and shoot_cooldown.is_stopped():
+		var dir : float = 0.0
+		match(direction):
+			DIRECTION.LEFT:
+				dir = -1.0
+				sprite.flip_h = true
+			DIRECTION.RIGHT:
+				dir = 1.0
+				sprite.flip_h = false
+		shoot_cooldown.start()
+		var bullet : Area2D = Projectile.instantiate()
+		bullet.position = position
+		bullet.direction = dir
+		get_tree().get_root().add_child(bullet)
+	elif not sprite.is_playing() and sprite.animation == "Shoot":
+		state = STATE.IDLE
+
 func walk(delta):
 	var dir : float = 0.0
 	match(direction):
 		DIRECTION.LEFT:
 			dir = -1.0
+			sprite.flip_h = true
 		DIRECTION.RIGHT:
 			dir = 1.0
+			sprite.flip_h = false
 	floor_detect.force_raycast_update()
 	if floor_detect.is_colliding() and floor_detect.get_collider().name != "Player":
 		position.x += dir * WALK_SPEED * delta
+		sprite.play("Walk")
 	else:
 		direction = DIRECTION.LEFT if direction == DIRECTION.RIGHT else DIRECTION.RIGHT
 		floor_detect.position.x = dir * floor_detect_position
@@ -52,17 +75,15 @@ func shoot():
 		var dir : float = sign(player.position.x - position.x)
 		if dir < 0.0:
 			direction = DIRECTION.LEFT
+			sprite.flip_h = true
 		else:
 			direction = DIRECTION.RIGHT
+			sprite.flip_h = false
 		floor_detect.position.x = -dir * floor_detect_position
 		front_detect.target_position.x = look_distance * dir
 		back_detect.target_position.x = look_distance * -dir * 0.5
-		state = STATE.IDLE
-		shoot_cooldown.start()
-		var bullet : Area2D = Projectile.instantiate()
-		bullet.position = position
-		bullet.direction = dir
-		get_tree().get_root().add_child(bullet)
+		state = STATE.SHOOTING
+		sprite.play("Shoot")
 
 func die():
 	state = STATE.DYING
@@ -73,6 +94,9 @@ func _physics_process(delta):
 			walk(delta)
 		STATE.AGGRESSIVE:
 			shoot()
+		STATE.SHOOTING:
+			# do nothing, really
+			return
 		STATE.DYING:
 			# do some death animation here instead of just removing
 			queue_free()

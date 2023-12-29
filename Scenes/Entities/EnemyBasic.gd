@@ -5,6 +5,8 @@ extends Area2D
 @onready var floor_detect : RayCast2D = $Floor
 @onready var aggression : Timer = $Aggression
 
+@onready var sprite : AnimatedSprite2D = $Sprite2D
+
 enum STATE {IDLE, AGGRESSIVE, DYING}
 enum DIRECTION {LEFT, RIGHT}
 
@@ -33,11 +35,14 @@ func walk(delta):
 	match(direction):
 		DIRECTION.LEFT:
 			dir = -1.0
+			sprite.flip_h = true
 		DIRECTION.RIGHT:
 			dir = 1.0
+			sprite.flip_h = false
 	floor_detect.force_raycast_update()
 	if floor_detect.is_colliding() and floor_detect.get_collider().name != "Player":
 		position.x += dir * WALK_SPEED * delta
+		sprite.play("Walk")
 	else:
 		direction = DIRECTION.LEFT if direction == DIRECTION.RIGHT else DIRECTION.RIGHT
 		floor_detect.position.x = dir * floor_detect_position
@@ -50,8 +55,15 @@ func run(delta):
 	front_detect.target_position.x = look_distance * dir
 	back_detect.target_position.x = look_distance * -dir * 0.5
 	floor_detect.force_raycast_update()
+	if dir < 0.0:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 	if floor_detect.is_colliding() and floor_detect.get_collider().name != "Player" and abs(player.position.x - position.x) > RUN_SPEED * delta:
+		sprite.play("Run")
 		position.x += dir * RUN_SPEED * delta
+	elif sprite.is_playing():
+		sprite.play("Stop")
 
 func die():
 	state = STATE.DYING
