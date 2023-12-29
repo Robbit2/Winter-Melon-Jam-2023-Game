@@ -8,8 +8,8 @@ extends Area2D
 enum STATE {IDLE, AGGRESSIVE}
 enum DIRECTION {LEFT, RIGHT}
 
-@export var WALK_SPEED : float = 200.0
-@export var RUN_SPEED : float = 500.0
+@export var WALK_SPEED : float = 100.0
+@export var RUN_SPEED : float = 200.0
 @export var knockback : float = 500.0
 
 var state : STATE = STATE.IDLE
