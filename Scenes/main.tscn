@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cy868f58go36m"]
+[gd_scene load_steps=22 format=3 uid="uid://cy868f58go36m"]
 
 [ext_resource type="Texture2D" uid="uid://bva7wt454rqie" path="res://Assets/Tilesets/Mossy - Decorations&Hazards.png" id="1_r7uv3"]
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="2_icani"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dr1q71nbgxbl4" path="res://Scenes/Entities/EnemyBasic.tscn" id="3_dpc6p"]
 [ext_resource type="Texture2D" uid="uid://dg27anqi4br1y" path="res://Assets/Tilesets/Mossy - MossyHills.png" id="3_enqdu"]
 [ext_resource type="Texture2D" uid="uid://buw6l02o61cvh" path="res://Assets/Tilesets/Mossy - Hanging Plants.png" id="4_21xha"]
+[ext_resource type="PackedScene" uid="uid://c21b5u7a3bg7d" path="res://Scenes/Entities/EnemyRanged.tscn" id="7_jmnrv"]
 [ext_resource type="Script" path="res://Scenes/HealthLabel.gd" id="8_etnc1"]
 [ext_resource type="PackedScene" uid="uid://bg4tr04lut1fq" path="res://Scenes/charm.tscn" id="9_cdadq"]
-[ext_resource type="PackedScene" uid="uid://c21b5u7a3bg7d" path="res://Scenes/Entities/EnemyRanged.tscn" id="7_jmnrv"]
+[ext_resource type="Script" path="res://Scenes/Menu button.gd" id="10_i5nvf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lasch"]
 load_path = "res://.godot/imported/Mossy - TileSet.png-84b91f76700dacd0253d4d7e0dafe65c.ctex"
@@ -724,22 +725,25 @@ sources/5 = SubResource("TileSetAtlasSource_2dxts")
 sources/6 = SubResource("TileSetAtlasSource_58tlw")
 sources/7 = SubResource("TileSetAtlasSource_apo3g")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbvqo"]
+bg_color = Color(0.890196, 0.247059, 0.180392, 0.690196)
+
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_ib8xp")
 format = 2
-layer_0/tile_data = PackedInt32Array(458752, 262144, 1, -196608, 262144, 0, -131072, 131072, 1, -65536, 131072, 1, 0, 131072, 1, 65536, 131072, 1, 131072, 131072, 1, 196608, 131072, 1, 262144, 131072, 1, 327680, 131072, 1, 393216, 131072, 1, 458753, 65536, 0, 458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 65536, 0, 458759, 327680, 1, 458760, 262144, 1, 458761, 65536, 0, 458762, 65536, 0, 458763, 65536, 0, 458764, 65536, 0, 458765, 65536, 0, 458766, 65536, 0, 458767, 65536, 0, 458768, 65536, 0, 458769, 65536, 0, 458770, 65536, 0, 458771, 65536, 0, 458772, 65536, 0, 458773, 65536, 0, 458774, 65536, 0, 458775, 65536, 0, 458776, 65536, 0, 458777, 65536, 0, 458778, 65536, 0, 458779, 65536, 0, 458780, 65536, 0, 458781, 65536, 0, 458782, 65536, 0, -196607, 65536, 2, -196606, 65536, 2, -196605, 65536, 2, -196604, 65536, 2, -196603, 65536, 2, -196602, 65536, 2, -196601, 65536, 2, -196600, 65536, 2, -196599, 65536, 2, -196598, 65536, 2, -196597, 65536, 2, -196596, 65536, 2, -196595, 65536, 2, -196594, 65536, 2, -196593, 65536, 2, -196592, 65536, 2, -196591, 65536, 2, -196590, 65536, 2, -196589, 65536, 2, -196588, 65536, 2, -196587, 65536, 2, -196586, 65536, 2, -196585, 65536, 2, -196584, 65536, 2, -196583, 65536, 2, -196582, 65536, 2, -196581, 65536, 2, -196580, 65536, 2, -196579, 65536, 2, -196578, 65536, 2, -196577, 327680, 0, 458783, 327680, 1, -131041, 0, 1, -65505, 0, 1, 31, 0, 1, 65567, 0, 1, 131103, 0, 1, 196639, 0, 1, 262175, 0, 1, 327711, 0, 1, 393247, 0, 1, 393224, 131072, 1, 327688, 131072, 1, 393223, 0, 1, 327687, 0, 1, 262151, 0, 0, 262152, 131072, 0, 196624, 0, 0, 196625, 65536, 0, 196626, 65536, 0, 196627, 131072, 0, 262160, 0, 2, 262161, 65536, 2, 262162, 65536, 2, 262163, 131072, 2)
+layer_0/tile_data = PackedInt32Array(458752, 262144, 1, -196608, 262144, 0, -131072, 131072, 1, -65536, 131072, 1, 0, 131072, 1, 65536, 131072, 1, 131072, 131072, 1, 196608, 131072, 1, 262144, 131072, 1, 327680, 131072, 1, 393216, 131072, 1, 458753, 65536, 0, 458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 65536, 0, 458759, 327680, 1, 458760, 262144, 1, 458761, 65536, 0, 458762, 65536, 0, 458763, 65536, 0, 458764, 65536, 0, 458765, 65536, 0, 458766, 65536, 0, 458767, 65536, 0, 458768, 65536, 0, 458769, 65536, 0, 458770, 65536, 0, 458771, 65536, 0, 458772, 65536, 0, 458773, 65536, 0, 458774, 65536, 0, 458775, 65536, 0, 458776, 65536, 0, 458777, 65536, 0, 458778, 65536, 0, 458779, 65536, 0, 458780, 65536, 0, 458781, 65536, 0, 458782, 65536, 0, -196607, 65536, 2, -196606, 65536, 2, -196605, 65536, 2, -196604, 65536, 2, -196603, 65536, 2, -196602, 65536, 2, -196601, 65536, 2, -196600, 65536, 2, -196599, 65536, 2, -196598, 65536, 2, -196597, 65536, 2, -196596, 65536, 2, -196595, 65536, 2, -196594, 65536, 2, -196593, 65536, 2, -196592, 65536, 2, -196591, 65536, 2, -196590, 65536, 2, -196589, 65536, 2, -196588, 65536, 2, -196587, 65536, 2, -196586, 65536, 2, -196585, 65536, 2, -196584, 65536, 2, -196583, 65536, 2, -196582, 65536, 2, -196581, 65536, 2, -196580, 65536, 2, -196579, 65536, 2, -196578, 65536, 2, -196577, 327680, 0, 458783, 327680, 1, -131041, 0, 1, -65505, 0, 1, 31, 0, 1, 65567, 0, 1, 131103, 0, 1, 196639, 0, 1, 262175, 0, 1, 327711, 0, 1, 393247, 0, 1, 393224, 131072, 1, 327688, 131072, 1, 393223, 0, 1, 327687, 0, 1, 262151, 0, 0, 262152, 131072, 0, 131084, 0, 0, 131085, 65536, 0, 131086, 131072, 0, 196620, 0, 2, 196621, 65536, 2, 196622, 131072, 2, 196630, 0, 0, 196631, 65536, 0, 196632, 131072, 0, 262166, 0, 2, 262167, 65536, 2, 262168, 131072, 2)
 
 [node name="Player" parent="." instance=ExtResource("2_icani")]
 position = Vector2(346, 165)
 
 [node name="EnemyBasic" parent="." instance=ExtResource("3_dpc6p")]
-position = Vector2(1156, 190)
+position = Vector2(867, 122)
 
 [node name="EnemyRanged" parent="." instance=ExtResource("7_jmnrv")]
-position = Vector2(1133, 289)
+position = Vector2(1507, 160)
 
 [node name="Smoke Puff" parent="." instance=ExtResource("3_0n4j8")]
 visible = false
@@ -763,7 +767,50 @@ theme_override_font_sizes/font_size = 25
 text = "Health: 3"
 horizontal_alignment = 1
 vertical_alignment = 1
-
 script = ExtResource("8_etnc1")
+
+[node name="DeathScreen" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fbvqo")
+
+[node name="YouDied" type="Label" parent="UI/DeathScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 65
+text = "You Died"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu button" type="Button" parent="UI/DeathScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -113.5
+offset_top = -237.0
+offset_right = 113.5
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "Menu"
+script = ExtResource("10_i5nvf")
+
 [node name="Charm" parent="." instance=ExtResource("9_cdadq")]
 position = Vector2(1784, 413)
+
+[connection signal="pressed" from="UI/DeathScreen/Menu button" to="UI/DeathScreen/Menu button" method="_on_pressed"]

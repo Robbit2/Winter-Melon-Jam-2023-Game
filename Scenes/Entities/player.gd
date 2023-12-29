@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var dash_timeout_timer : Timer = $DashTimeout
 @onready var invincibility : Timer = $Invincibility
 @onready var health_label = $"../UI/HealthPanel/HealthLabel"
+@onready var death_screen = $"../UI/DeathScreen"
 
 @export var SPEED : float = 750.0
 @export var JUMP_VELOCITY : float = -800.0
@@ -57,7 +58,7 @@ func _physics_process(delta):
 	# Handles Jump
 	# if the player is not falling -> normal jump
 	# if the player is falling -> air jump
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and not dead:
 		if not is_falling and can_jump:
 			set_action("Jump")
 			can_jump = false
@@ -79,16 +80,21 @@ func _physics_process(delta):
 	else:
 		pass
 	# flips the sprite if player is moving left and unflips if moving right
-	if direction < 0:
-		sprite.flip_h = true
-	else:
+	if direction < 0 and not is_falling:
 		sprite.flip_h = false
+	if direction > 0 and not is_falling:
+		sprite.flip_h = true
+	if direction < 0 and is_falling:
+		sprite.flip_h = false
+	if direction > 0 and is_falling:
+		sprite.flip_h = true
 	# using move_toward for everything (not just deceleration) makes the movement more weighty
 	# it also allows us to just add velocity to the dash and have it move smoothly into normal speed
-	velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / WEIGHT_FACTOR)
+	if not dead:
+		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / WEIGHT_FACTOR)
 
 
-	if Input.is_action_just_pressed("dash") and can_dash and charms >= 2:
+	if Input.is_action_just_pressed("dash") and can_dash and charms >= 2 and not dead:
 		# up/down is inverted so DASH_SPEED_VERTICAL can have a positive sign
 		var dash_direction = Input.get_vector("left", "right", "up", "down").normalized()
 		dash_timeout_timer.start()
@@ -113,9 +119,9 @@ func hit(enemy_pos_x : float, knockback : float):
 		var dir : Vector2 = Vector2(sign(position.x - enemy_pos_x), -1.0).normalized()
 		velocity = dir * Vector2(knockback * 5.0, knockback)
 		invincibility.start()
-	health -= 1
-	health_label.update(health)
-	return true
+		health -= 1
+		GlobalSignals.emit_signal("UpdateHealth", health)
+		check_dead()
 
 func getCharm():
 	charms += 1
@@ -123,3 +129,10 @@ func getCharm():
 
 func _on_invincibility_timeout():
 	pass # Replace with function body.
+
+func check_dead():
+	if health <= 0:
+		dead = true
+	if dead:
+		Engine.time_scale = 0
+		death_screen.visible = true
