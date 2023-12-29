@@ -1,15 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://c21b5u7a3bg7d"]
+[gd_scene load_steps=9 format=3 uid="uid://c21b5u7a3bg7d"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/EnemyRanged.gd" id="1_uq0qb"]
+[ext_resource type="Texture2D" uid="uid://bid1baomsgi0e" path="res://kamart/Monsters_Creatures_Fantasy/Skeleton/Walk.png" id="2_1wiy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t427d"]
-size = Vector2(30, 70)
+size = Vector2(65, 81)
 
-[sub_resource type="Gradient" id="Gradient_8kqyq"]
-colors = PackedColorArray(0.894118, 0.0509804, 0, 1, 0.921569, 0.054902, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eme8l"]
+atlas = ExtResource("2_1wiy7")
+region = Rect2(0, 0, 150, 150)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_067sh"]
-gradient = SubResource("Gradient_8kqyq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahlcn"]
+atlas = ExtResource("2_1wiy7")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igxqm"]
+atlas = ExtResource("2_1wiy7")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uch8s"]
+atlas = ExtResource("2_1wiy7")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_er2nk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eme8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahlcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igxqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uch8s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="EnemyRanged" type="Area2D"]
 collision_layer = 3
@@ -17,18 +48,21 @@ collision_mask = 2
 script = ExtResource("1_uq0qb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_t427d")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture1D_067sh")
-region_enabled = true
-region_rect = Rect2(0, 0, 30, 70)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6.99998, 3)
+scale = Vector2(1.72667, 1.70667)
+sprite_frames = SubResource("SpriteFrames_er2nk")
+autoplay = "default"
 
 [node name="FrontDetect" type="RayCast2D" parent="."]
 target_position = Vector2(512, 0)
 collision_mask = 4
 
 [node name="BackDetect" type="RayCast2D" parent="."]
+position = Vector2(-5, 0)
 target_position = Vector2(-256, 0)
 collision_mask = 4
 
