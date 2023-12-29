@@ -80,10 +80,14 @@ func _physics_process(delta):
 	else:
 		pass
 	# flips the sprite if player is moving left and unflips if moving right
-	if direction < 0:
-		sprite.flip_h = true
-	else:
+	if direction < 0 and not is_falling:
 		sprite.flip_h = false
+	if direction > 0 and not is_falling:
+		sprite.flip_h = true
+	if direction < 0 and is_falling:
+		sprite.flip_h = false
+	if direction > 0 and is_falling:
+		sprite.flip_h = true
 	# using move_toward for everything (not just deceleration) makes the movement more weighty
 	# it also allows us to just add velocity to the dash and have it move smoothly into normal speed
 	if not dead:

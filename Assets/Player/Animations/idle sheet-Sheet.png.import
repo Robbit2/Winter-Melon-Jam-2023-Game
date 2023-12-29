@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpfnxcptuh84v"
-path="res://.godot/imported/Meow-Knight_Jump.png-8a9416c9a9d6e9aeb6969072155d23df.ctex"
+uid="uid://dbpcklr6nvjh4"
+path="res://.godot/imported/idle sheet-Sheet.png-ec9a926578160df757664ed24ccdb212.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Animations/Meow-Knight_Jump.png"
-dest_files=["res://.godot/imported/Meow-Knight_Jump.png-8a9416c9a9d6e9aeb6969072155d23df.ctex"]
+source_file="res://Assets/Player/Animations/idle sheet-Sheet.png"
+dest_files=["res://.godot/imported/idle sheet-Sheet.png-ec9a926578160df757664ed24ccdb212.ctex"]
 
 [params]
 
