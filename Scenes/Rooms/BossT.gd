@@ -1,7 +1,7 @@
 extends Area2D
 
 # I'm not commenting all that
-@onready var color_rect = $ColorRect
+@onready var sprite := $AnimatedSprite2D
 
 @onready var path_BL : PathFollow2D = $"../PathBL/PathFollow"
 @onready var path_BR : PathFollow2D = $"../PathBR/PathFollow"
@@ -134,38 +134,38 @@ func _physics_process(delta):
 	if state == STATE.TRANSITION and currPath != TRANSITIONS.BB and currPath != TRANSITIONS.LL and currPath != TRANSITIONS.RR:
 		transitionPathDict[currPath].progress_ratio = get_curr_Timer_Progress()
 		position = transitionPathDict[currPath].position
-		color_rect.color = Color(0.0, 0.0, 1.0)
+		sprite.modulate = Color(0.0, 0.0, 1.0)
 	if action:
 		match state:
 			STATE.BATTACK:
 				attackB()
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BATTACK1:
 				attack1(0)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.LATTACK1:
 				attack1(1)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.RATTACK1:
 				attack1(2)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BATTACK2:
 				attack2(0)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.LATTACK2:
 				attack2(1)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.RATTACK2:
 				attack2(2)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BWAIT:
-				color_rect.color = Color(1.0, 1.0, 1.0)
+				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 			STATE.LWAIT:
-				color_rect.color = Color(1.0, 1.0, 1.0)
+				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 			STATE.RWAIT:
-				color_rect.color = Color(1.0, 1.0, 1.0)
+				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 		action = false
 	if player_inside:
@@ -242,7 +242,7 @@ func hit():
 	GlobalSignals.emit_signal("UpdateBossHealth", health)
 
 func _on_danger_timeout():
-	color_rect.color = Color(1.0, 0.3, 0.0)
+	sprite.modulate = Color(1.0, 0.3, 0.0)
 
 
 func _on_body_entered(body):
