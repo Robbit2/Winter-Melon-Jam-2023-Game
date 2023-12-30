@@ -227,3 +227,7 @@ func _on_sword_area_area_entered(area):
 		area.die()
 	elif "Boss" in area.name:
 		area.hit()
+
+
+func _on_teleporter_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/leveltwo.tscn")
