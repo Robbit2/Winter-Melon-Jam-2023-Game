@@ -171,11 +171,13 @@ func check_dead():
 
 # enemies are Area2Ds -> we need to check area entered
 func _on_sword_area_area_entered(area):
-	print(area.name)
 	# just call all enemies Enemy... :)
 	# I just deleted nodes with enemy in the name, this removed projectiles
 	# was cool, now it's a feature
-	if "EnemyProjectile" in area.name:
-		area.queue_free()
+	# problematic with test boss
+	if "Projectile" in area.name:
+		pass
 	elif "Enemy" in area.name:
 		area.die()
+	elif "Boss" in area.name:
+		area.hit()
