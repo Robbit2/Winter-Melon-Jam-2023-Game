@@ -66,7 +66,17 @@ layer_0/tile_data = PackedInt32Array(458752, 262144, 1, -196608, 262144, 0, -131
 
 [node name="Player" parent="." instance=ExtResource("2_icani")]
 position = Vector2(350, 310)
+SPEED = 750.0
+JUMP_VELOCITY = -800.0
+AIR_JUMP_VELOCITY = -700.0
+DOWN_PULL = 1.5
+DASH_SPEED_HORIZONTAL = 2000.0
+DASH_SPEED_VERTICAL = 1000.0
+WEIGHT_FACTOR = 3.0
 unlocked_dj = true
+unlocked_dash = false
+unlocked_bow = false
+action = "Idle"
 
 [node name="EnemyBasic" parent="." instance=ExtResource("3_dpc6p")]
 position = Vector2(867, 122)

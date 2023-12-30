@@ -1,9 +1,11 @@
 extends Area2D
+@onready var collision_shape_2d = $CollisionShape2D
 
 @onready var front_detect : RayCast2D = $FrontDetect
 @onready var back_detect : RayCast2D = $BackDetect
 @onready var floor_detect : RayCast2D = $Floor
 @onready var shoot_cooldown : Timer = $ShootCooldown
+@onready var death = $Death
 
 @onready var sprite : AnimatedSprite2D = $Sprite2D
 
@@ -98,7 +100,12 @@ func _physics_process(delta):
 			# do nothing, really
 			return
 		STATE.DYING:
-			# do some death animation here instead of just removing
+			if death.playing:
+				return
+			death.play()
+			sprite.play("Death")
+			collision_shape_2d.disabled = true
+			await get_tree().create_timer(2.5).timeout
 			queue_free()
 	if front_detect.is_colliding():
 		state = STATE.AGGRESSIVE

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpr3ajf8y1a4u"]
+[gd_scene load_steps=16 format=3 uid="uid://bvdkr56ejkev7"]
 
 [ext_resource type="Texture2D" uid="uid://c5qr27wlxlgtn" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_mndhx"]
 [ext_resource type="Texture2D" uid="uid://vkf3yq5vb0jx" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="2_d0iec"]
@@ -66,7 +66,32 @@ layer_0/tile_data = PackedInt32Array(458752, 262144, 1, -196608, 131072, 1, -131
 
 [node name="Player" parent="." instance=ExtResource("4_i6x7e")]
 position = Vector2(375, 347)
+SPEED = 750.0
+JUMP_VELOCITY = -800.0
+AIR_JUMP_VELOCITY = -700.0
+DOWN_PULL = 1.5
+DASH_SPEED_HORIZONTAL = 2000.0
+DASH_SPEED_VERTICAL = 1000.0
+WEIGHT_FACTOR = 3.0
 unlocked_dj = true
+unlocked_dash = false
+unlocked_bow = false
+action = "Idle"
+
+[node name="EnemyBasic" parent="." instance=ExtResource("5_ruufs")]
+position = Vector2(833, 430)
+
+[node name="EnemyBasic3" parent="." instance=ExtResource("5_ruufs")]
+position = Vector2(710, 432)
+
+[node name="EnemyBasic6" parent="." instance=ExtResource("5_ruufs")]
+position = Vector2(710, 432)
+
+[node name="EnemyBasic5" parent="." instance=ExtResource("5_ruufs")]
+position = Vector2(1310, 445)
+
+[node name="EnemyBasic7" parent="." instance=ExtResource("5_ruufs")]
+position = Vector2(1568, 444)
 
 [node name="EnemyBasic" parent="." instance=ExtResource("5_ruufs")]
 position = Vector2(833, 430)
