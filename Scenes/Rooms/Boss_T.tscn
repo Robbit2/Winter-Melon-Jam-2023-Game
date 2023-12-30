@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://gqocd4ygf6dl"]
+[gd_scene load_steps=34 format=3 uid="uid://gqocd4ygf6dl"]
 
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="1_n5owg"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossCamera.gd" id="1_xxfpu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ccb34s62omn3l" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0008_3.png" id="3_je8vp"]
 [ext_resource type="Script" path="res://Scenes/Menu button.gd" id="4_lbnj7"]
 [ext_resource type="Texture2D" uid="uid://be8ofcbbvkhtd" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="4_vlsqk"]
+[ext_resource type="Script" path="res://Scenes/Rooms/GameOver.gd" id="5_ugm13"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossT.gd" id="6_uhsit"]
 [ext_resource type="Texture2D" uid="uid://dptdt0puxukrv" path="res://characters/Boss/EVil Wizard 2/Sprites/Idle.png" id="8_q526h"]
 [ext_resource type="AudioStream" uid="uid://cwr2mp7e4acj8" path="res://Assets/Boss/Sounds/Arcane Beacon.wav" id="9_syy1n"]
@@ -141,6 +142,7 @@ scale = Vector2(0.534162, 0.496476)
 texture = ExtResource("4_vlsqk")
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("5_ugm13")
 
 [node name="HealthPanel" type="Panel" parent="UI"]
 anchors_preset = -1
@@ -222,6 +224,31 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 35
 text = "Menu"
 script = ExtResource("4_lbnj7")
+
+[node name="EndPanel" type="Panel" parent="UI"]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="EndLabel" type="Label" parent="UI/EndPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -37.5
+offset_right = 43.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Game Over
+
+You Won"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BossCam" type="Camera2D" parent="."]
 

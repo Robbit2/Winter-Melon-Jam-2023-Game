@@ -18,7 +18,7 @@ extends Area2D
 @onready var wait = $"../Audio/Wait"
 
 
-var health := 15
+@export var health := 15
 
 enum STATE {BWAIT, BATTACK, BATTACK1, BATTACK2, 
 			LWAIT, LATTACK1, LATTACK2,
@@ -155,44 +155,51 @@ func _physics_process(delta):
 	if state == STATE.TRANSITION and currPath != TRANSITIONS.BB and currPath != TRANSITIONS.LL and currPath != TRANSITIONS.RR:
 		transitionPathDict[currPath].progress_ratio = get_curr_Timer_Progress()
 		position = transitionPathDict[currPath].position
-		color_rect.color = Color(0.0, 0.0, 1.0)
+		sprite.modulate = Color(0.0, 0.0, 1.0)
 	if action:
 		match state:
 			STATE.BATTACK:
 				sprite.flip_h = false
 				defendB()
 				attackB()
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BATTACK1:
 				sprite.flip_h = false
 				defendB()
 				attack1(0)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.LATTACK1:
+				sprite.flip_h = false
 				attack1(1)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.RATTACK1:
+				sprite.flip_h = true
 				attack1(2)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BATTACK2:
 				sprite.flip_h = false
 				defendB()
 				attack2(0)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.LATTACK2:
+				sprite.flip_h = false
 				attack2(1)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.RATTACK2:
+				sprite.flip_h = true
 				attack2(2)
-				color_rect.color = Color(1.0, 0.0, 0.0)
+				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BWAIT:
-				color_rect.color = Color(1.0, 1.0, 1.0)
+				sprite.flip_h = false
+				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 			STATE.LWAIT:
-				color_rect.color = Color(1.0, 1.0, 1.0)
+				sprite.flip_h = false
+				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 			STATE.RWAIT:
-				color_rect.color = Color(1.0, 1.0, 1.0)
+				sprite.flip_h = true
+				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 		action = false
 	if player_inside:
@@ -281,7 +288,7 @@ func hit():
 	GlobalSignals.emit_signal("UpdateBossHealth", health)
 
 func _on_danger_timeout():
-	color_rect.color = Color(1.0, 0.3, 0.0)
+	sprite.modulate = Color(1.0, 0.3, 0.0)
 
 
 func _on_body_entered(body):
