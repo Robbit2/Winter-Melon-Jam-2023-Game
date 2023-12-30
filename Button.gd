@@ -8,6 +8,7 @@ extends Button
 func _on_pressed():
 		get_tree().reload_current_scene()
 		Engine.time_scale = 1
+		
 
 func _ready():
 	pass # Replace with function body.
