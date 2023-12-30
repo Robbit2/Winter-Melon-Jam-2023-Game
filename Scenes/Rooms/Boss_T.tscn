@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://gqocd4ygf6dl"]
+[gd_scene load_steps=26 format=3 uid="uid://gqocd4ygf6dl"]
 
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="1_n5owg"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossCamera.gd" id="1_xxfpu"]
@@ -7,9 +7,74 @@
 [ext_resource type="Script" path="res://Scenes/Rooms/BossHealthLabel.gd" id="3_er7lx"]
 [ext_resource type="Script" path="res://Scenes/Menu button.gd" id="4_lbnj7"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossT.gd" id="6_uhsit"]
+[ext_resource type="Texture2D" uid="uid://dptdt0puxukrv" path="res://Assets/Boss/EVil Wizard 2/Sprites/Idle.png" id="8_q526h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jr3sc"]
 bg_color = Color(0.890196, 0.247059, 0.180392, 0.690196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0attq"]
+atlas = ExtResource("8_q526h")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv5dj"]
+atlas = ExtResource("8_q526h")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aac5b"]
+atlas = ExtResource("8_q526h")
+region = Rect2(500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iymo7"]
+atlas = ExtResource("8_q526h")
+region = Rect2(750, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdvtx"]
+atlas = ExtResource("8_q526h")
+region = Rect2(1000, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsuf0"]
+atlas = ExtResource("8_q526h")
+region = Rect2(1250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1vxi"]
+atlas = ExtResource("8_q526h")
+region = Rect2(1500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odbl0"]
+atlas = ExtResource("8_q526h")
+region = Rect2(1750, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a0pp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0attq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv5dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aac5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iymo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdvtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsuf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1vxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odbl0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpxky"]
 size = Vector2(50, 120)
@@ -153,11 +218,14 @@ layer_0/tile_data = PackedInt32Array(393207, 65536, 0, 393208, 65536, 0, 393209,
 position = Vector2(0, -176)
 script = ExtResource("6_uhsit")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss"]
+position = Vector2(1, -13)
+scale = Vector2(1.582, 1.73047)
+sprite_frames = SubResource("SpriteFrames_a0pp2")
+autoplay = "default"
+
 [node name="ColorRect" type="ColorRect" parent="Boss"]
-offset_left = -25.0
-offset_top = -60.0
-offset_right = 25.0
-offset_bottom = 60.0
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 shape = SubResource("RectangleShape2D_mpxky")
