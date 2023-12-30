@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://gqocd4ygf6dl"]
+[gd_scene load_steps=35 format=3 uid="uid://gqocd4ygf6dl"]
 
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="1_n5owg"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossCamera.gd" id="1_xxfpu"]
@@ -77,38 +77,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpxky"]
-size = Vector2(88, 82)
+size = Vector2(70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ee5o"]
-atlas = ExtResource("8_qlv0b")
 region = Rect2(54, 52, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hskco"]
-atlas = ExtResource("8_qlv0b")
 region = Rect2(204, 52, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xm50a"]
-atlas = ExtResource("8_qlv0b")
 region = Rect2(354, 52, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce4l4"]
-atlas = ExtResource("8_qlv0b")
 region = Rect2(504, 52, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_og4ll"]
-atlas = ExtResource("8_qlv0b")
 region = Rect2(654, 52, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1hbq"]
-atlas = ExtResource("8_qlv0b")
 region = Rect2(804, 52, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hc8b"]
-atlas = ExtResource("8_qlv0b")
 region = Rect2(954, 52, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6p3tj"]
-atlas = ExtResource("8_qlv0b")
 region = Rect2(1104, 52, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iqjsl"]
@@ -289,7 +281,7 @@ sprite_frames = SubResource("SpriteFrames_a0pp2")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
-position = Vector2(-2, -2)
+position = Vector2(0, 12.5)
 shape = SubResource("RectangleShape2D_mpxky")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -298,7 +290,7 @@ process_callback = 0
 wait_time = 2.5
 one_shot = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Boss"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_iqjsl")
 autoplay = "default"
