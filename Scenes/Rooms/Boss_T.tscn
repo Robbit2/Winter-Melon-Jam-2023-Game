@@ -246,6 +246,9 @@ scale = Vector2(1.582, 1.73047)
 sprite_frames = SubResource("SpriteFrames_a0pp2")
 autoplay = "default"
 
+[node name="ColorRect" type="ColorRect" parent="Boss"]
+visible = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 shape = SubResource("RectangleShape2D_mpxky")
 debug_color = Color(1, 0, 0, 0.419608)

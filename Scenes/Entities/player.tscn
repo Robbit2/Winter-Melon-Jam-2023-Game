@@ -678,7 +678,6 @@ bus = &"SFX"
 stream = ExtResource("16_rkwn4")
 volume_db = -20.0
 autoplay = true
-bus = &"SFX"
 
 [node name="Pickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_cy1tl")
