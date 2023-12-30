@@ -10,6 +10,12 @@ extends CharacterBody2D
 @onready var swordbox = $Sprite/SwordArea/Swordbox
 var swordbox_dist
 
+@onready var bow_sound = $BowSound
+@onready var jump_sounds = [$JumpSoundA, $JumpSoundB, $JumpSoundC]
+@onready var damage_sounds = [$DamageSoundA, $DamageSoundB, $DamageSoundC, $DamageSoundD]
+@onready var sword_sounds = [$SwordSoundA, $SwordSoundA]
+@onready var run_sound = $RunSoundA
+@onready var pickup = $Pickup
 @export var SPEED : float = 750.0
 @export var JUMP_VELOCITY : float = -800.0
 @export var AIR_JUMP_VELOCITY : float = -700.0
@@ -68,11 +74,14 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout
 	GlobalSignals.emit_signal("PlayerReady", self)
 	if unlocked_dash:
-		getCharm()
+		GlobalSignals.emit_signal("CharmPickup", "Dash")
+		charms += 1
 	if unlocked_dj:
-		getCharm()
+		GlobalSignals.emit_signal("CharmPickup", "Double Jump")
+		charms += 1
 	if unlocked_bow:
-		getCharm()
+		GlobalSignals.emit_signal("CharmPickup", "Bow")
+		charms += 1
 
 func _process(_delta):
 	# flips the sprite if player is moving left and unflips if moving right
@@ -193,6 +202,7 @@ func hit(enemy_pos_x : float, knockback : float):
 
 func getCharm():
 	charms += 1
+	pickup.play()
 	match(charms):
 		1:
 			unlocked_dj = true

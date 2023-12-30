@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwr2mp7e4acj8"
+path="res://.godot/imported/Arcane Beacon.wav-85df8074824f10486b90be3713c894a9.sample"
+
+[deps]
+
+source_file="res://Assets/Boss/Sounds/Arcane Beacon.wav"
+dest_files=["res://.godot/imported/Arcane Beacon.wav-85df8074824f10486b90be3713c894a9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
