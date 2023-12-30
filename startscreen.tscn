@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjo5i8jscujp7"]
+[gd_scene load_steps=9 format=3 uid="uid://cjo5i8jscujp7"]
 
 [ext_resource type="Texture2D" uid="uid://0p8gdkfohbpx" path="res://kamart/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_3squu"]
 [ext_resource type="Script" path="res://startscreen.gd" id="1_8fabe"]
@@ -7,6 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://bl4xigd24mlgq" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="4_l4fea"]
 [ext_resource type="Texture2D" uid="uid://vkf3yq5vb0jx" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="5_cgtgo"]
 [ext_resource type="Texture2D" uid="uid://be8ofcbbvkhtd" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="6_lqham"]
+
+[sub_resource type="FontFile" id="FontFile_yjg6o"]
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/100/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/100/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="Control" type="Node2D"]
 script = ExtResource("1_8fabe")
@@ -69,8 +85,10 @@ offset_left = 11.0
 offset_top = 1.0
 offset_right = 1015.0
 offset_bottom = 255.0
+theme_override_fonts/font = SubResource("FontFile_yjg6o")
 theme_override_font_sizes/font_size = 100
-text = "Charming"
+text = "SlaughterCharm"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="startbutton" to="startbutton" method="_on_pressed"]
