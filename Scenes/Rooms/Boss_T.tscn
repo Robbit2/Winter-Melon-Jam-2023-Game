@@ -140,6 +140,8 @@ script = ExtResource("4_lbnj7")
 
 [node name="Player" parent="." instance=ExtResource("1_n5owg")]
 position = Vector2(0, 280)
+unlocked_dj = true
+unlocked_dash = true
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)

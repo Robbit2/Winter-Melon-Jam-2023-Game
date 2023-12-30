@@ -27,9 +27,8 @@ texture = ExtResource("1_6skel")
 
 [node name="BGTrees" type="TextureRect" parent="BGColor"]
 layout_mode = 0
-offset_left = 20.8046
 offset_top = -30.051
-offset_right = 948.805
+offset_right = 928.0
 offset_bottom = 762.949
 scale = Vector2(1.05072, 1.05072)
 texture = ExtResource("2_v4ssi")
@@ -42,6 +41,7 @@ layer_0/tile_data = PackedInt32Array(458752, 262144, 1, -196608, 262144, 0, -131
 
 [node name="Player" parent="." instance=ExtResource("2_icani")]
 position = Vector2(346, 187)
+unlocked_dj = true
 
 [node name="EnemyBasic" parent="." instance=ExtResource("3_dpc6p")]
 position = Vector2(867, 122)
@@ -129,7 +129,7 @@ offset_top = 6.0
 offset_right = 110.0
 offset_bottom = 41.0
 theme_override_font_sizes/font_size = 25
-text = "Charm: 0"
+text = "Charms:"
 script = ExtResource("11_8lm7k")
 
 [node name="Charm" parent="." instance=ExtResource("9_cdadq")]
