@@ -28,9 +28,9 @@ texture = ExtResource("1_mndhx")
 [node name="BGTrees" type="TextureRect" parent="BGColor"]
 layout_mode = 0
 offset_left = 34.6742
-offset_top = -36.9858
+offset_top = -14.332
 offset_right = 962.674
-offset_bottom = 756.014
+offset_bottom = 778.668
 scale = Vector2(1.05072, 1.05072)
 texture = ExtResource("2_d0iec")
 
