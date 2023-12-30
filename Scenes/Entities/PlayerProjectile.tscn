@@ -1,9 +1,102 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2bht2ena3u14"]
+[gd_scene load_steps=17 format=3 uid="uid://b2bht2ena3u14"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/PlayerProjectile.gd" id="1_aao2a"]
+[ext_resource type="Texture2D" uid="uid://c0f5kls72iyl4" path="res://Assets/Player/arrowSheet.png" id="2_5mon5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctb1y"]
 size = Vector2(60, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m85qg"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(0, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvaah"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(120, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxxae"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(240, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu64m"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(360, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdxc0"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(480, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qinf8"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(600, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8o1d"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(720, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfkrl"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(840, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hb1s"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(960, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmiqo"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(1080, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7511s"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(1200, 0, 120, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2k10"]
+atlas = ExtResource("2_5mon5")
+region = Rect2(1320, 0, 120, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dasbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m85qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvaah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxxae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu64m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdxc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qinf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8o1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfkrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hb1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmiqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7511s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2k10")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="PlayerProjectile" type="Area2D"]
 script = ExtResource("1_aao2a")
@@ -12,11 +105,11 @@ PROJECTILE_SPEED = 1000.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ctb1y")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -30.0
-offset_top = -15.0
-offset_right = 30.0
-offset_bottom = 15.0
+[node name="Arrow" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_dasbd")
+autoplay = "default"
+frame_progress = 0.598163
 
 [node name="Lifetime" type="Timer" parent="."]
 process_callback = 0
