@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy868f58go36m"]
+[gd_scene load_steps=16 format=3 uid="uid://cd0vh3jlb6aoe"]
 
 [ext_resource type="Texture2D" uid="uid://c5qr27wlxlgtn" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_u6n71"]
 [ext_resource type="Texture2D" uid="uid://vkf3yq5vb0jx" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="2_3vilt"]
@@ -11,13 +11,16 @@
 [ext_resource type="Script" path="res://Scenes/HealthLabel.gd" id="8_4m5o3"]
 [ext_resource type="Script" path="res://Scenes/Menu button.gd" id="9_vtw7u"]
 [ext_resource type="Script" path="res://Scenes/CharmLabel.gd" id="10_4xj2q"]
-[ext_resource type="PackedScene" uid="uid://bg4tr04lut1fq" path="res://Scenes/charm.tscn" id="11_usdrc"]
+[ext_resource type="PackedScene" uid="uid://8xdynwgdbnii" path="res://Scenes/charm.tscn" id="11_usdrc"]
+[ext_resource type="Script" path="res://Scenes/Teleporter.gd" id="13_xu8sn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbvqo"]
 bg_color = Color(0.890196, 0.247059, 0.180392, 0.690196)
 
-[node name="Main" type="Node2D"]
-metadata/_edit_vertical_guides_ = [-1126.0]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcnso"]
+size = Vector2(582, 292)
+
+[node name="Main3" type="Node2D"]
 
 [node name="BGColor" type="TextureRect" parent="."]
 offset_left = 16.0
@@ -182,4 +185,12 @@ position = Vector2(1784, 413)
 [node name="Charm2" parent="." instance=ExtResource("11_usdrc")]
 position = Vector2(3494, 606)
 
+[node name="Teleporter3" type="Area2D" parent="."]
+script = ExtResource("13_xu8sn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter3"]
+position = Vector2(5577, 231)
+shape = SubResource("RectangleShape2D_wcnso")
+
 [connection signal="pressed" from="UI/DeathScreen/Menu button" to="UI/DeathScreen/Menu button" method="_on_pressed"]
+[connection signal="body_entered" from="Teleporter3" to="Player" method="_on_teleporter_3_body_entered"]

@@ -621,63 +621,51 @@ one_shot = true
 [node name="BowSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_u7vqj")
 volume_db = -3.0
-bus = &"SFX"
 
 [node name="JumpSoundA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_bbw0l")
 volume_db = -3.0
-bus = &"SFX"
 
 [node name="JumpSoundB" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mjqog")
 volume_db = -3.0
-bus = &"SFX"
 
 [node name="JumpSoundC" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tmu6r")
 volume_db = -3.0
-bus = &"SFX"
 
 [node name="DamageSoundA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_sg5n4")
 volume_db = -3.0
-bus = &"SFX"
 
 [node name="DamageSoundB" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_d586c")
 volume_db = -3.0
-bus = &"SFX"
 
 [node name="DamageSoundC" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_2ax6t")
 volume_db = -3.0
-bus = &"SFX"
 
 [node name="DamageSoundD" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_jih67")
 volume_db = -3.0
-bus = &"SFX"
 
 [node name="SwordSoundA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_0cxx6")
 volume_db = -5.0
-bus = &"SFX"
 
 [node name="SwordSoundB" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0ia7l")
 volume_db = -5.0
-bus = &"SFX"
 
 [node name="RunSoundA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_sflyw")
 volume_db = -10.0
-bus = &"SFX"
 
 [node name="Ambiance" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_rkwn4")
 volume_db = -10.0
 autoplay = true
-bus = &"SFX"
 
 [connection signal="area_entered" from="Sprite/SwordArea" to="." method="_on_sword_area_area_entered"]
 [connection signal="timeout" from="Coyote" to="." method="_on_coyote_timeout"]
