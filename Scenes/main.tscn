@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy868f58go36m"]
+[gd_scene load_steps=15 format=3 uid="uid://cuxkpds3q0bdn"]
 
 [ext_resource type="Texture2D" uid="uid://c5qr27wlxlgtn" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_6skel"]
 [ext_resource type="TileSet" uid="uid://gb2uik1t1m8y" path="res://Assets/Tilesets/Moss.tres" id="1_246eq"]

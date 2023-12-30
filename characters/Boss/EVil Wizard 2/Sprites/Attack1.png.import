@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxc0sd5vgse4f"
-path="res://.godot/imported/Fall.png-dd9e0fb9c3b1ea004fddb0f83d5c3d40.ctex"
+uid="uid://c8lwnal2y2pjg"
+path="res://.godot/imported/Attack1.png-02e21a8b42e6a33c372bdb68e8740c17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Boss/EVil Wizard 2/Sprites/Fall.png"
-dest_files=["res://.godot/imported/Fall.png-dd9e0fb9c3b1ea004fddb0f83d5c3d40.ctex"]
+source_file="res://characters/Boss/EVil Wizard 2/Sprites/Attack1.png"
+dest_files=["res://.godot/imported/Attack1.png-02e21a8b42e6a33c372bdb68e8740c17.ctex"]
 
 [params]
 

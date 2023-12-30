@@ -5,7 +5,7 @@ extends Area2D
 
 @onready var charm = $"."
 
-@onready var player
+var player
 
 func _ready():
 	GlobalSignals.connect("PlayerReady", _on_player_ready)
