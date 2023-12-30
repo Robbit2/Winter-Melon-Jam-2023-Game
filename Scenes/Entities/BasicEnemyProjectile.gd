@@ -10,9 +10,10 @@ var direction : float
 func _physics_process(delta):
 	position.x += direction * PROJECTILE_SPEED * delta
 
-
-func _on_body_entered(body):
-	# I don't like this, but if we don't change the name it works
-	if body.name == "Player":
+# alternative projectile hitbox detection
+func _on_body_shape_entered(_body_rid, body, body_shape_index, _local_shape_index):
+	if body.name == "Player" and body_shape_index == 1:
 		body.hit(position.x, knockback)
-	queue_free()
+		queue_free()
+	if body.name != "Player":
+		queue_free()

@@ -5,7 +5,9 @@ extends Area2D
 @onready var floor_detect : RayCast2D = $Floor
 @onready var aggression : Timer = $Aggression
 
-enum STATE {IDLE, AGGRESSIVE}
+@onready var sprite : AnimatedSprite2D = $Sprite2D
+
+enum STATE {IDLE, AGGRESSIVE, DYING}
 enum DIRECTION {LEFT, RIGHT}
 
 @export var WALK_SPEED : float = 100.0
@@ -33,11 +35,14 @@ func walk(delta):
 	match(direction):
 		DIRECTION.LEFT:
 			dir = -1.0
+			sprite.flip_h = true
 		DIRECTION.RIGHT:
 			dir = 1.0
+			sprite.flip_h = false
 	floor_detect.force_raycast_update()
 	if floor_detect.is_colliding() and floor_detect.get_collider().name != "Player":
 		position.x += dir * WALK_SPEED * delta
+		sprite.play("Walk")
 	else:
 		direction = DIRECTION.LEFT if direction == DIRECTION.RIGHT else DIRECTION.RIGHT
 		floor_detect.position.x = dir * floor_detect_position
@@ -50,8 +55,18 @@ func run(delta):
 	front_detect.target_position.x = look_distance * dir
 	back_detect.target_position.x = look_distance * -dir * 0.5
 	floor_detect.force_raycast_update()
+	if dir < 0.0:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 	if floor_detect.is_colliding() and floor_detect.get_collider().name != "Player" and abs(player.position.x - position.x) > RUN_SPEED * delta:
+		sprite.play("Run")
 		position.x += dir * RUN_SPEED * delta
+	elif sprite.is_playing():
+		sprite.play("Stop")
+
+func die():
+	state = STATE.DYING
 
 func _physics_process(delta):
 	match(state):
@@ -59,6 +74,9 @@ func _physics_process(delta):
 			walk(delta)
 		STATE.AGGRESSIVE:
 			run(delta)
+		STATE.DYING:
+			# do some death animation here instead of instantly removing
+			queue_free()
 	if front_detect.is_colliding():
 		player = front_detect.get_collider()
 		state = STATE.AGGRESSIVE
@@ -79,6 +97,7 @@ func _on_aggression_timeout():
 
 func _on_body_entered(body):
 	player = body
+	
 	player_inside = true
 
 
