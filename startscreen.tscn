@@ -87,7 +87,7 @@ offset_right = 1015.0
 offset_bottom = 255.0
 theme_override_fonts/font = SubResource("FontFile_yjg6o")
 theme_override_font_sizes/font_size = 100
-text = "SlaughterCharm"
+text = "Slaughtercharm"
 horizontal_alignment = 1
 vertical_alignment = 1
 
