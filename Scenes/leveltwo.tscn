@@ -22,19 +22,19 @@ size = Vector2(523, 296)
 [node name="Main" type="Node2D"]
 
 [node name="BGColor" type="TextureRect" parent="."]
-offset_left = 16.0
-offset_top = -1227.0
-offset_right = 3512.0
-offset_bottom = -298.0
+offset_left = 45.0
+offset_top = -1298.0
+offset_right = 3541.0
+offset_bottom = -369.0
 scale = Vector2(2.16299, 2.16299)
 texture = ExtResource("1_mndhx")
 
 [node name="BGTrees" type="TextureRect" parent="BGColor"]
 layout_mode = 0
 offset_left = 34.6742
-offset_top = -36.9858
+offset_top = -14.332
 offset_right = 962.674
-offset_bottom = 756.014
+offset_bottom = 778.668
 scale = Vector2(1.05072, 1.05072)
 texture = ExtResource("2_d0iec")
 
@@ -72,6 +72,7 @@ position = Vector2(1919, 444)
 [node name="EnemyBasic11" parent="." instance=ExtResource("5_ruufs")]
 position = Vector2(738, 446)
 
+
 [node name="EnemyBasic13" parent="." instance=ExtResource("5_ruufs")]
 position = Vector2(3306, 185)
 
@@ -95,6 +96,7 @@ anchor_right = 0.003
 anchor_bottom = 0.003
 offset_right = 123.16
 offset_bottom = 47.84
+metadata/_edit_use_anchors_ = true
 
 [node name="HealthLabel" type="Label" parent="UI/HealthPanel"]
 layout_mode = 0
@@ -107,6 +109,7 @@ text = "Health: 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_6ra82")
+metadata/_edit_use_anchors_ = true
 
 [node name="DeathScreen" type="Panel" parent="UI"]
 visible = false
@@ -154,6 +157,7 @@ offset_left = 4.0
 offset_top = 52.0
 offset_right = 226.0
 offset_bottom = 101.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CharmLabel" type="Label" parent="UI/CharmPanel"]
 layout_mode = 0
@@ -163,6 +167,7 @@ offset_bottom = 41.0
 theme_override_font_sizes/font_size = 25
 text = "Charms Collected"
 script = ExtResource("10_88q3c")
+metadata/_edit_use_anchors_ = true
 
 [node name="Charm" parent="." instance=ExtResource("11_ckod8")]
 position = Vector2(1195, 400)
@@ -179,6 +184,9 @@ script = ExtResource("12_eng53")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2"]
 position = Vector2(5642.5, 230)
 shape = SubResource("RectangleShape2D_c3684")
+
+[node name="Charm3" parent="." instance=ExtResource("11_ckod8")]
+position = Vector2(1351, -156)
 
 [connection signal="pressed" from="UI/DeathScreen/Menu button" to="UI/DeathScreen/Menu button" method="_on_pressed"]
 [connection signal="body_entered" from="Teleporter2" to="Teleporter2" method="_on_body_entered"]
