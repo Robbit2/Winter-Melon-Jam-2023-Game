@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy868f58go36m"]
+[gd_scene load_steps=14 format=3 uid="uid://cy868f58go36m"]
 
 [ext_resource type="Texture2D" uid="uid://c5qr27wlxlgtn" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_u6n71"]
 [ext_resource type="Texture2D" uid="uid://vkf3yq5vb0jx" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="2_3vilt"]
 [ext_resource type="TileSet" uid="uid://gb2uik1t1m8y" path="res://Assets/Tilesets/Moss.tres" id="3_i1aff"]
+[ext_resource type="Texture2D" uid="uid://bacv1y2d8a3ad" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0003_6.png" id="3_qh78e"]
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="4_ictbv"]
 [ext_resource type="PackedScene" uid="uid://dr1q71nbgxbl4" path="res://Scenes/Entities/EnemyBasic.tscn" id="5_tvgia"]
 [ext_resource type="PackedScene" uid="uid://c21b5u7a3bg7d" path="res://Scenes/Entities/EnemyRanged.tscn" id="6_g2y1q"]
@@ -50,6 +51,11 @@ offset_right = 2965.46
 offset_bottom = 724.114
 scale = Vector2(1.05072, 1.05072)
 texture = ExtResource("2_3vilt")
+
+[node name="Layer00036" type="Sprite2D" parent="BGColor/BGTrees2"]
+position = Vector2(-399.965, -357.285)
+scale = Vector2(3.56194, 3.55694)
+texture = ExtResource("3_qh78e")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
