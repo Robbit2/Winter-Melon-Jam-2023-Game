@@ -1,22 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjo5i8jscujp7"]
+[gd_scene load_steps=8 format=3 uid="uid://cjo5i8jscujp7"]
 
 [ext_resource type="Texture2D" uid="uid://0p8gdkfohbpx" path="res://kamart/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_3squu"]
+[ext_resource type="Script" path="res://startscreen.gd" id="1_8fabe"]
 [ext_resource type="Script" path="res://Button.gd" id="1_tg8mo"]
 [ext_resource type="Texture2D" uid="uid://bt1wq72xvw647" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0006_4.png" id="2_mgofj"]
 [ext_resource type="Texture2D" uid="uid://bl4xigd24mlgq" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="4_l4fea"]
 [ext_resource type="Texture2D" uid="uid://vkf3yq5vb0jx" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="5_cgtgo"]
 [ext_resource type="Texture2D" uid="uid://be8ofcbbvkhtd" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="6_lqham"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Control" type="Node2D"]
+script = ExtResource("1_8fabe")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 1277.0
@@ -32,8 +27,27 @@ position = Vector2(116.909, -199.619)
 scale = Vector2(1.10412, 0.935057)
 texture = ExtResource("2_mgofj")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
+[node name="Layer0004Lights" type="Sprite2D" parent="Background"]
+position = Vector2(18.0328, -139.167)
+scale = Vector2(0.305358, 0.276046)
+texture = ExtResource("4_l4fea")
+
+[node name="Layer0004Lights2" type="Sprite2D" parent="Background"]
+position = Vector2(24.356, 41.9048)
+scale = Vector2(0.153436, 0.149523)
+texture = ExtResource("4_l4fea")
+
+[node name="Layer00009" type="Sprite2D" parent="Background"]
+position = Vector2(4.87119, -43.8095)
+scale = Vector2(0.544295, 0.441962)
+texture = ExtResource("5_cgtgo")
+
+[node name="Layer00018" type="Sprite2D" parent="Background"]
+position = Vector2(4.87119, -10.6667)
+scale = Vector2(0.53097, 0.382153)
+texture = ExtResource("6_lqham")
+
+[node name="startbutton" type="Button" parent="."]
 offset_left = 490.0
 offset_top = 482.0
 offset_right = 796.0
@@ -44,7 +58,6 @@ text = "Start"
 script = ExtResource("1_tg8mo")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
 offset_left = 134.0
 offset_top = 31.0
 offset_right = 1149.0
@@ -60,22 +73,4 @@ theme_override_font_sizes/font_size = 100
 text = "Charming"
 horizontal_alignment = 1
 
-[node name="Layer0004Lights" type="Sprite2D" parent="."]
-position = Vector2(685.125, -14.3125)
-scale = Vector2(0.814925, 0.724622)
-texture = ExtResource("4_l4fea")
-
-[node name="Layer0004Lights2" type="Sprite2D" parent="."]
-position = Vector2(702, 461)
-scale = Vector2(0.409483, 0.392497)
-texture = ExtResource("4_l4fea")
-
-[node name="Layer00009" type="Sprite2D" parent="."]
-position = Vector2(650, 236)
-scale = Vector2(1.45259, 1.16015)
-texture = ExtResource("5_cgtgo")
-
-[node name="Layer00018" type="Sprite2D" parent="."]
-position = Vector2(650, 323)
-scale = Vector2(1.41703, 1.00315)
-texture = ExtResource("6_lqham")
+[connection signal="pressed" from="startbutton" to="startbutton" method="_on_pressed"]

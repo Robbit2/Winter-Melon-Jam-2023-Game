@@ -17,6 +17,7 @@
 bg_color = Color(0.890196, 0.247059, 0.180392, 0.690196)
 
 [node name="Main" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-1126.0]
 
 [node name="BGColor" type="TextureRect" parent="."]
 offset_left = 16.0
@@ -29,9 +30,9 @@ texture = ExtResource("1_u6n71")
 [node name="BGColor2" type="TextureRect" parent="BGColor"]
 layout_mode = 0
 offset_left = -19.8799
-offset_top = -651.875
+offset_top = -678.228
 offset_right = 3476.12
-offset_bottom = 277.125
+offset_bottom = 250.772
 scale = Vector2(2.16299, 2.16299)
 texture = ExtResource("1_u6n71")
 
@@ -53,9 +54,19 @@ scale = Vector2(1.05072, 1.05072)
 texture = ExtResource("2_3vilt")
 
 [node name="Layer00036" type="Sprite2D" parent="BGColor/BGTrees2"]
-position = Vector2(-399.965, -357.285)
-scale = Vector2(3.56194, 3.55694)
+position = Vector2(-2117.75, -361.245)
+scale = Vector2(3.49506, 3.49015)
 texture = ExtResource("3_qh78e")
+
+[node name="Layer00037" type="Sprite2D" parent="BGColor/BGTrees2"]
+position = Vector2(1331.9, -354.205)
+scale = Vector2(3.49506, 3.49015)
+texture = ExtResource("3_qh78e")
+
+[node name="Layer00009" type="Sprite2D" parent="BGColor/BGTrees2/Layer00037"]
+position = Vector2(-498.288, 308.999)
+scale = Vector2(0.125894, 0.126071)
+texture = ExtResource("2_3vilt")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
@@ -81,6 +92,9 @@ position = Vector2(2266, 214)
 
 [node name="EnemyRanged2" parent="." instance=ExtResource("6_g2y1q")]
 position = Vector2(3645, -565)
+
+[node name="EnemyRanged3" parent="." instance=ExtResource("6_g2y1q")]
+position = Vector2(4943, 333)
 
 [node name="Smoke Puff" parent="." instance=ExtResource("7_wtwuc")]
 visible = false
