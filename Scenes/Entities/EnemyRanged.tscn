@@ -1,10 +1,43 @@
-[gd_scene load_steps=9 format=3 uid="uid://c21b5u7a3bg7d"]
+[gd_scene load_steps=18 format=3 uid="uid://c21b5u7a3bg7d"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/EnemyRanged.gd" id="1_uq0qb"]
 [ext_resource type="Texture2D" uid="uid://bid1baomsgi0e" path="res://kamart/Monsters_Creatures_Fantasy/Skeleton/Walk.png" id="2_1wiy7"]
+[ext_resource type="Texture2D" uid="uid://dxbxoghwrudf7" path="res://kamart/Monsters_Creatures_Fantasy/Skeleton/Attack.png" id="2_q0e32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t427d"]
 size = Vector2(65, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg5fy"]
+atlas = ExtResource("2_q0e32")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_517te"]
+atlas = ExtResource("2_q0e32")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqc6t"]
+atlas = ExtResource("2_q0e32")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn8he"]
+atlas = ExtResource("2_q0e32")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vatik"]
+atlas = ExtResource("2_q0e32")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vupo4"]
+atlas = ExtResource("2_q0e32")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rui2a"]
+atlas = ExtResource("2_q0e32")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj2k7"]
+atlas = ExtResource("2_q0e32")
+region = Rect2(1050, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eme8l"]
 atlas = ExtResource("2_1wiy7")
@@ -26,6 +59,35 @@ region = Rect2(450, 0, 150, 150)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xg5fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_517te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqc6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn8he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vatik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vupo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rui2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj2k7")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_eme8l")
 }, {
 "duration": 1.0,
@@ -38,7 +100,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_uch8s")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Walk",
 "speed": 10.0
 }]
 
@@ -55,7 +117,8 @@ shape = SubResource("RectangleShape2D_t427d")
 position = Vector2(-6.99998, 3)
 scale = Vector2(1.72667, 1.70667)
 sprite_frames = SubResource("SpriteFrames_er2nk")
-autoplay = "default"
+animation = &"Shoot"
+autoplay = "Walk"
 
 [node name="FrontDetect" type="RayCast2D" parent="."]
 target_position = Vector2(512, 0)
