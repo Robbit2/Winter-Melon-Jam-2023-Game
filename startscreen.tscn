@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bl4xigd24mlgq" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="4_l4fea"]
 [ext_resource type="Texture2D" uid="uid://vkf3yq5vb0jx" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="5_cgtgo"]
 [ext_resource type="Texture2D" uid="uid://be8ofcbbvkhtd" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="6_lqham"]
+
 [node name="Control" type="Node2D"]
 script = ExtResource("1_8fabe")
 
@@ -68,7 +69,6 @@ offset_left = 11.0
 offset_top = 1.0
 offset_right = 1015.0
 offset_bottom = 255.0
-theme_override_fonts/font = SubResource("FontFile_yjg6o")
 theme_override_font_sizes/font_size = 100
 text = "Slaughtercharm"
 horizontal_alignment = 1
