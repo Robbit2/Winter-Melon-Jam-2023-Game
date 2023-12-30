@@ -510,13 +510,8 @@ autoplay = "Idle"
 
 [node name="SwordArea" type="Area2D" parent="Sprite"]
 
-<<<<<<< Updated upstream
 [node name="Swordbox" type="CollisionShape2D" parent="Sprite/SwordArea"]
 position = Vector2(-9, -2)
-=======
-[node name="Swordbox" type="CollisionShape2D" parent="Sprite/Area2D"]
-position = Vector2(-8.4, -2.2)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_e37na")
 disabled = true
 
