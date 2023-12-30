@@ -1,5 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cuxkpds3q0bdn"]
 
+
 [ext_resource type="Texture2D" uid="uid://c5qr27wlxlgtn" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_6skel"]
 [ext_resource type="TileSet" uid="uid://gb2uik1t1m8y" path="res://Assets/Tilesets/Moss.tres" id="1_246eq"]
 [ext_resource type="Texture2D" uid="uid://bt1wq72xvw647" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0006_4.png" id="2_hrt4u"]
@@ -9,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dr1q71nbgxbl4" path="res://Scenes/Entities/EnemyBasic.tscn" id="3_dpc6p"]
 [ext_resource type="PackedScene" uid="uid://c21b5u7a3bg7d" path="res://Scenes/Entities/EnemyRanged.tscn" id="7_jmnrv"]
 [ext_resource type="Script" path="res://Scenes/HealthLabel.gd" id="8_etnc1"]
-[ext_resource type="PackedScene" uid="uid://bg4tr04lut1fq" path="res://Scenes/charm.tscn" id="9_cdadq"]
+[ext_resource type="PackedScene" uid="uid://8xdynwgdbnii" path="res://Scenes/charm.tscn" id="9_cdadq"]
 [ext_resource type="Script" path="res://Scenes/Menu button.gd" id="10_i5nvf"]
 [ext_resource type="Script" path="res://Scenes/CharmLabel.gd" id="11_8lm7k"]
 [ext_resource type="Script" path="res://Scenes/Teleporter.gd" id="12_81tu3"]
@@ -20,7 +21,7 @@ bg_color = Color(0.890196, 0.247059, 0.180392, 0.690196)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyek0"]
 size = Vector2(471, 292)
 
-[node name="Main" type="Node2D"]
+[node name="Main2" type="Node2D"]
 
 [node name="BGColor" type="TextureRect" parent="."]
 offset_left = 16.0
