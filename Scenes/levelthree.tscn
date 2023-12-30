@@ -26,6 +26,7 @@ scale = Vector2(2.16299, 2.16299)
 texture = ExtResource("1_u6n71")
 
 [node name="BGColor2" type="TextureRect" parent="BGColor"]
+layout_mode = 0
 offset_left = -19.8799
 offset_top = -651.875
 offset_right = 3476.12
