@@ -138,33 +138,43 @@ func _physics_process(delta):
 	if action:
 		match state:
 			STATE.BATTACK:
+				sprite.flip_h = false
 				attackB()
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BATTACK1:
+				sprite.flip_h = false
 				attack1(0)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.LATTACK1:
+				sprite.flip_h = false
 				attack1(1)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.RATTACK1:
+				sprite.flip_h = true
 				attack1(2)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BATTACK2:
+				sprite.flip_h = false
 				attack2(0)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.LATTACK2:
+				sprite.flip_h = false
 				attack2(1)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.RATTACK2:
+				sprite.flip_h = true
 				attack2(2)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BWAIT:
+				sprite.flip_h = false
 				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 			STATE.LWAIT:
+				sprite.flip_h = false
 				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 			STATE.RWAIT:
+				sprite.flip_h = true
 				sprite.modulate = Color(1.0, 0.0, 0.0)
 				danger.start()
 		action = false
