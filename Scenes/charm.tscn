@@ -15,9 +15,11 @@ shape = SubResource("CircleShape2D_3qcef")
 
 [node name="Right" type="RayCast2D" parent="."]
 target_position = Vector2(150, 0)
+collision_mask = 4
 
 [node name="Left" type="RayCast2D" parent="."]
 target_position = Vector2(-150, 0)
+collision_mask = 4
 
 [node name="ColorRect" type="Sprite2D" parent="."]
 position = Vector2(4, 0.999999)
