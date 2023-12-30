@@ -1,14 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://cuxkpds3q0bdn"]
+[gd_scene load_steps=16 format=3 uid="uid://cuxkpds3q0bdn"]
+
 
 [ext_resource type="Texture2D" uid="uid://c5qr27wlxlgtn" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_6skel"]
 [ext_resource type="TileSet" uid="uid://gb2uik1t1m8y" path="res://Assets/Tilesets/Moss.tres" id="1_246eq"]
+[ext_resource type="Texture2D" uid="uid://bt1wq72xvw647" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0006_4.png" id="2_hrt4u"]
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="2_icani"]
 [ext_resource type="Texture2D" uid="uid://vkf3yq5vb0jx" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="2_v4ssi"]
 [ext_resource type="PackedScene" uid="uid://cqajl44q4ynca" path="res://Scenes/VFX/smoke_puff.tscn" id="3_0n4j8"]
 [ext_resource type="PackedScene" uid="uid://dr1q71nbgxbl4" path="res://Scenes/Entities/EnemyBasic.tscn" id="3_dpc6p"]
 [ext_resource type="PackedScene" uid="uid://c21b5u7a3bg7d" path="res://Scenes/Entities/EnemyRanged.tscn" id="7_jmnrv"]
 [ext_resource type="Script" path="res://Scenes/HealthLabel.gd" id="8_etnc1"]
-[ext_resource type="PackedScene" uid="uid://bg4tr04lut1fq" path="res://Scenes/charm.tscn" id="9_cdadq"]
+[ext_resource type="PackedScene" uid="uid://8xdynwgdbnii" path="res://Scenes/charm.tscn" id="9_cdadq"]
 [ext_resource type="Script" path="res://Scenes/Menu button.gd" id="10_i5nvf"]
 [ext_resource type="Script" path="res://Scenes/CharmLabel.gd" id="11_8lm7k"]
 [ext_resource type="Script" path="res://Scenes/Teleporter.gd" id="12_81tu3"]
@@ -19,7 +21,7 @@ bg_color = Color(0.890196, 0.247059, 0.180392, 0.690196)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyek0"]
 size = Vector2(471, 292)
 
-[node name="Main" type="Node2D"]
+[node name="Main2" type="Node2D"]
 
 [node name="BGColor" type="TextureRect" parent="."]
 offset_left = 16.0
@@ -29,20 +31,31 @@ offset_bottom = -298.0
 scale = Vector2(2.16299, 2.16299)
 texture = ExtResource("1_6skel")
 
+[node name="Layer00064" type="Sprite2D" parent="BGColor"]
+position = Vector2(528.897, 435.046)
+scale = Vector2(1.06978, 1.09197)
+texture = ExtResource("2_hrt4u")
+
+[node name="Layer00065" type="Sprite2D" parent="BGColor"]
+position = Vector2(2257.99, 412.854)
+scale = Vector2(1.06978, 1.09197)
+texture = ExtResource("2_hrt4u")
+
 [node name="BGTrees" type="TextureRect" parent="BGColor"]
 layout_mode = 0
-offset_top = -30.051
-offset_right = 928.0
-offset_bottom = 762.949
+offset_left = 6.47252
+offset_top = -31.438
+offset_right = 936.473
+offset_bottom = 763.562
 scale = Vector2(1.05072, 1.05072)
 texture = ExtResource("2_v4ssi")
 
 [node name="BGTrees2" type="TextureRect" parent="BGColor"]
 layout_mode = 0
-offset_left = 2037.46
-offset_top = -68.8861
-offset_right = 2965.46
-offset_bottom = 724.114
+offset_left = 1764.0
+offset_top = -69.0
+offset_right = 2952.0
+offset_bottom = 737.0
 scale = Vector2(1.05072, 1.05072)
 texture = ExtResource("2_v4ssi")
 

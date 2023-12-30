@@ -10,13 +10,6 @@ extends CharacterBody2D
 @onready var swordbox = $Sprite/SwordArea/Swordbox
 var swordbox_dist
 
-@onready var bow_sound = $BowSound
-@onready var jump_sounds = [$JumpSoundA, $JumpSoundB, $JumpSoundC]
-@onready var damage_sounds = [$DamageSoundA, $DamageSoundB, $DamageSoundC, $DamageSoundD]
-@onready var sword_sounds = [$SwordSoundA, $SwordSoundA]
-@onready var run_sound = $RunSoundA
-var curr_run_s := 0
-
 @export var SPEED : float = 750.0
 @export var JUMP_VELOCITY : float = -800.0
 @export var AIR_JUMP_VELOCITY : float = -700.0
@@ -53,13 +46,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var projectile
 
 func attack():
-	sword_sounds[randi_range(0, 1)].play()
 	set_action("Attack")
 	is_attacking = true
 	swordbox.disabled = false
 	
 func shoot():
-	bow_sound.play()
 	is_shooting = true
 	set_action("Shoot")
 	var bullet : Area2D = projectile.instantiate()
@@ -132,7 +123,6 @@ func _physics_process(delta):
 	# if the player is falling -> air jump
 	if Input.is_action_just_pressed("jump") and not dead and not is_attacking and not is_shooting:
 		if not is_falling and can_jump:
-			jump_sounds[randi_range(0, 2)].play()
 			set_action("Jump")
 			sprite.frame = 0
 			can_jump = false
@@ -140,7 +130,6 @@ func _physics_process(delta):
 			can_air_jump = true
 			velocity.y = JUMP_VELOCITY
 		elif is_falling and can_air_jump and unlocked_dj: # charm requirement can be placed here
-			jump_sounds[randi_range(0, 2)].play()
 			set_action("Jump")
 			sprite.frame = 0
 			can_air_jump = false
@@ -158,8 +147,6 @@ func _physics_process(delta):
 	# changes player to running animation if they are moving
 	if not is_falling and action != "Attack" and action != "Shoot":
 		if direction:
-			if not run_sound.playing:
-				run_sound.play()
 			set_action("Run")
 		else:
 			set_action("Idle")
@@ -170,7 +157,6 @@ func _physics_process(delta):
 
 
 	if Input.is_action_just_pressed("dash") and can_dash and unlocked_dash and not dead and not is_attacking and not is_shooting:
-		jump_sounds[randi_range(0, 2)].play()
 		# up/down is inverted so DASH_SPEED_VERTICAL can have a positive sign
 		var dash_direction = Input.get_vector("left", "right", "up", "down").normalized()
 		dash_timeout_timer.start()
@@ -194,7 +180,6 @@ func _on_dash_timeout():
 
 func hit(enemy_pos_x : float, knockback : float):
 	if invincibility.is_stopped():
-		damage_sounds[randi_range(0, 3)].play()
 		var dir : Vector2 = Vector2(sign(position.x - enemy_pos_x), -1.0).normalized()
 		velocity = dir * Vector2(knockback * 5.0, knockback)
 		invincibility.start()
@@ -240,3 +225,16 @@ func _on_sword_area_area_entered(area):
 		area.die()
 	elif "Boss" in area.name:
 		area.hit()
+
+
+func _on_teleporter_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/leveltwo.tscn")
+
+
+
+func _on_teleporter_2_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/levelthree.tscn")
+
+
+func _on_teleporter_3_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/Rooms/Boss_T.tscn")

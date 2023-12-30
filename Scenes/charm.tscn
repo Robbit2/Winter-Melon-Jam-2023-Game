@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg4tr04lut1fq"]
+[gd_scene load_steps=4 format=3 uid="uid://8xdynwgdbnii"]
 
 [ext_resource type="Script" path="res://Scenes/charm.gd" id="1_3kyy1"]
 [ext_resource type="Texture2D" uid="uid://48xpucllefrt" path="res://kamart/CelestialObjects.png" id="2_wpcp4"]
@@ -15,9 +15,11 @@ shape = SubResource("CircleShape2D_3qcef")
 
 [node name="Right" type="RayCast2D" parent="."]
 target_position = Vector2(150, 0)
+collision_mask = 4
 
 [node name="Left" type="RayCast2D" parent="."]
 target_position = Vector2(-150, 0)
+collision_mask = 4
 
 [node name="ColorRect" type="Sprite2D" parent="."]
 position = Vector2(4, 0.999999)
