@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjo5i8jscujp7"]
+[gd_scene load_steps=7 format=3 uid="uid://cjo5i8jscujp7"]
 
 [ext_resource type="Texture2D" uid="uid://0p8gdkfohbpx" path="res://kamart/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_3squu"]
 [ext_resource type="Script" path="res://Button.gd" id="1_tg8mo"]
+[ext_resource type="Texture2D" uid="uid://bt1wq72xvw647" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0006_4.png" id="2_mgofj"]
+[ext_resource type="Texture2D" uid="uid://bl4xigd24mlgq" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0004_Lights.png" id="4_l4fea"]
+[ext_resource type="Texture2D" uid="uid://vkf3yq5vb0jx" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="5_cgtgo"]
+[ext_resource type="Texture2D" uid="uid://be8ofcbbvkhtd" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="6_lqham"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,9 +23,14 @@ offset_right = 1277.0
 offset_bottom = 718.0
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(640, 358)
+position = Vector2(637, 351)
 scale = Vector2(2.66875, 2.625)
 texture = ExtResource("1_3squu")
+
+[node name="Layer00064" type="Sprite2D" parent="Background"]
+position = Vector2(116.909, -199.619)
+scale = Vector2(1.10412, 0.935057)
+texture = ExtResource("2_mgofj")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -43,10 +52,30 @@ offset_bottom = 289.0
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 3.0
-offset_right = 1012.0
-offset_bottom = 257.0
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 1015.0
+offset_bottom = 255.0
 theme_override_font_sizes/font_size = 100
-text = "GAME TITLE"
+text = "Charming"
 horizontal_alignment = 1
+
+[node name="Layer0004Lights" type="Sprite2D" parent="."]
+position = Vector2(685.125, -14.3125)
+scale = Vector2(0.814925, 0.724622)
+texture = ExtResource("4_l4fea")
+
+[node name="Layer0004Lights2" type="Sprite2D" parent="."]
+position = Vector2(702, 461)
+scale = Vector2(0.409483, 0.392497)
+texture = ExtResource("4_l4fea")
+
+[node name="Layer00009" type="Sprite2D" parent="."]
+position = Vector2(650, 236)
+scale = Vector2(1.45259, 1.16015)
+texture = ExtResource("5_cgtgo")
+
+[node name="Layer00018" type="Sprite2D" parent="."]
+position = Vector2(650, 323)
+scale = Vector2(1.41703, 1.00315)
+texture = ExtResource("6_lqham")

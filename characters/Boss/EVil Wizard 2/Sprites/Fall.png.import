@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgbvk12xvrn6r"
-path="res://.godot/imported/Jump.png-e23d2096d3ebb40408cc093396a4b1fb.ctex"
+uid="uid://cxc0sd5vgse4f"
+path="res://.godot/imported/Fall.png-29a6b35954e15ed4835301e48606e1e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Boss/EVil Wizard 2/Sprites/Jump.png"
-dest_files=["res://.godot/imported/Jump.png-e23d2096d3ebb40408cc093396a4b1fb.ctex"]
+source_file="res://characters/Boss/EVil Wizard 2/Sprites/Fall.png"
+dest_files=["res://.godot/imported/Fall.png-29a6b35954e15ed4835301e48606e1e1.ctex"]
 
 [params]
 

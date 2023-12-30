@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btclg5drm4v1j"
-path="res://.godot/imported/Take hit.png-f78877be5479ddf902e9548bea73ad01.ctex"
+uid="uid://dau8ai4gxgcoq"
+path="res://.godot/imported/Run.png-9aafc3f03ec2ed69266fe30795ddc47d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Boss/EVil Wizard 2/Sprites/Take hit.png"
-dest_files=["res://.godot/imported/Take hit.png-f78877be5479ddf902e9548bea73ad01.ctex"]
+source_file="res://characters/Boss/EVil Wizard 2/Sprites/Run.png"
+dest_files=["res://.godot/imported/Run.png-9aafc3f03ec2ed69266fe30795ddc47d.ctex"]
 
 [params]
 
