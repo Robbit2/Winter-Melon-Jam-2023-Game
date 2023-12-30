@@ -80,7 +80,71 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpxky"]
-size = Vector2(50, 120)
+size = Vector2(88, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ee5o"]
+atlas = ExtResource("8_qlv0b")
+region = Rect2(54, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hskco"]
+atlas = ExtResource("8_qlv0b")
+region = Rect2(204, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm50a"]
+atlas = ExtResource("8_qlv0b")
+region = Rect2(354, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce4l4"]
+atlas = ExtResource("8_qlv0b")
+region = Rect2(504, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og4ll"]
+atlas = ExtResource("8_qlv0b")
+region = Rect2(654, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1hbq"]
+atlas = ExtResource("8_qlv0b")
+region = Rect2(804, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hc8b"]
+atlas = ExtResource("8_qlv0b")
+region = Rect2(954, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p3tj"]
+atlas = ExtResource("8_qlv0b")
+region = Rect2(1104, 52, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqjsl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ee5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hskco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm50a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce4l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og4ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1hbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hc8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p3tj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_j1viu"]
 _data = {
@@ -242,10 +306,8 @@ scale = Vector2(1.582, 1.73047)
 sprite_frames = SubResource("SpriteFrames_a0pp2")
 autoplay = "default"
 
-[node name="ColorRect" type="ColorRect" parent="Boss"]
-visible = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
+position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_mpxky")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -253,6 +315,12 @@ debug_color = Color(1, 0, 0, 0.419608)
 process_callback = 0
 wait_time = 2.5
 one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_iqjsl")
+autoplay = "default"
+frame_progress = 0.9279
 
 [node name="PathBL" type="Path2D" parent="."]
 visible = false
