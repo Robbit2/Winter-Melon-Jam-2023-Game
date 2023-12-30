@@ -4,10 +4,12 @@ extends Area2D
 @onready var left = $Left
 
 @onready var charm = $"."
-@onready var player = $"../Player"
 
+var player
 
-
+func _ready():
+	GlobalSignals.connect("PlayerReady", _on_player_ready)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if right.is_colliding():
@@ -17,4 +19,7 @@ func _process(_delta):
 
 func _on_body_entered(_body):
 	queue_free()
-	player.charms += 1
+	player.getCharm()
+
+func _on_player_ready(p):
+	player = p

@@ -41,6 +41,7 @@ layer_0/tile_data = PackedInt32Array(458752, 262144, 1, -196608, 262144, 0, -131
 
 [node name="Player" parent="." instance=ExtResource("2_icani")]
 position = Vector2(346, 187)
+unlocked_dj = true
 
 [node name="EnemyBasic" parent="." instance=ExtResource("3_dpc6p")]
 position = Vector2(867, 122)
@@ -128,7 +129,7 @@ offset_top = 6.0
 offset_right = 110.0
 offset_bottom = 41.0
 theme_override_font_sizes/font_size = 25
-text = "Charm: 0"
+text = "Charms:"
 script = ExtResource("11_8lm7k")
 
 [node name="Charm" parent="." instance=ExtResource("9_cdadq")]

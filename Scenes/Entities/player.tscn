@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cmfnri103q43r"]
+[gd_scene load_steps=82 format=3 uid="uid://cmfnri103q43r"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/player.gd" id="1_ul8et"]
 [ext_resource type="Texture2D" uid="uid://sq26os2v7vg0" path="res://Assets/Player/redhoodSheetAlt.png" id="2_a1sb2"]
@@ -265,6 +265,38 @@ region = Rect2(1232, 133, 112, 133)
 atlas = ExtResource("2_a1sb2")
 region = Rect2(0, 266, 112, 133)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f6xa"]
+atlas = ExtResource("2_a1sb2")
+region = Rect2(112, 266, 112, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c0so"]
+atlas = ExtResource("2_a1sb2")
+region = Rect2(224, 266, 112, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q33m"]
+atlas = ExtResource("2_a1sb2")
+region = Rect2(336, 266, 112, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2lxk"]
+atlas = ExtResource("2_a1sb2")
+region = Rect2(448, 266, 112, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gegi"]
+atlas = ExtResource("2_a1sb2")
+region = Rect2(560, 266, 112, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dunxk"]
+atlas = ExtResource("2_a1sb2")
+region = Rect2(672, 266, 112, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkgdm"]
+atlas = ExtResource("2_a1sb2")
+region = Rect2(784, 266, 112, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xusnq"]
+atlas = ExtResource("2_a1sb2")
+region = Rect2(896, 266, 112, 133)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_igojk"]
 animations = [{
 "frames": [{
@@ -486,6 +518,35 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f6xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c0so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q33m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2lxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gegi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dunxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkgdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xusnq")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e37na"]
@@ -505,7 +566,7 @@ script = ExtResource("1_ul8et")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_igojk")
-animation = &"Idle"
+animation = &"Shoot"
 autoplay = "Idle"
 
 [node name="SwordArea" type="Area2D" parent="Sprite"]
