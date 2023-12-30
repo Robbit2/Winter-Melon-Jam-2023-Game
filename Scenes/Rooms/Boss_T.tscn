@@ -2,12 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="1_n5owg"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossCamera.gd" id="1_xxfpu"]
+[ext_resource type="Texture2D" uid="uid://cuwutygp2rbo2" path="res://kamart/Free Pixel Art Forest/Preview/Background.png" id="2_5jkw4"]
 [ext_resource type="TileSet" uid="uid://gb2uik1t1m8y" path="res://Assets/Tilesets/Moss.tres" id="2_wjdly"]
 [ext_resource type="Script" path="res://Scenes/HealthLabel.gd" id="3_6pnal"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossHealthLabel.gd" id="3_er7lx"]
+[ext_resource type="Texture2D" uid="uid://ccb34s62omn3l" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0008_3.png" id="3_je8vp"]
 [ext_resource type="Script" path="res://Scenes/Menu button.gd" id="4_lbnj7"]
+[ext_resource type="Texture2D" uid="uid://be8ofcbbvkhtd" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="4_vlsqk"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossT.gd" id="6_uhsit"]
-[ext_resource type="Texture2D" uid="uid://dptdt0puxukrv" path="res://Assets/Boss/EVil Wizard 2/Sprites/Idle.png" id="8_q526h"]
+[ext_resource type="Texture2D" uid="uid://dptdt0puxukrv" path="res://characters/Boss/EVil Wizard 2/Sprites/Idle.png" id="8_q526h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jr3sc"]
 bg_color = Color(0.890196, 0.247059, 0.180392, 0.690196)
@@ -77,6 +80,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpxky"]
+
 size = Vector2(70, 93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ee5o"]
@@ -173,6 +177,21 @@ point_count = 2
 
 [node name="BossT" type="Node2D"]
 script = ExtResource("1_xxfpu")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(79, -339)
+scale = Vector2(2.25536, 2.25536)
+texture = ExtResource("2_5jkw4")
+
+[node name="Layer00083" type="Sprite2D" parent="."]
+position = Vector2(11, -596)
+scale = Vector2(2.94128, 2.94128)
+texture = ExtResource("3_je8vp")
+
+[node name="Layer00018" type="Sprite2D" parent="Layer00083"]
+position = Vector2(5.4398, 129.195)
+scale = Vector2(0.534162, 0.496476)
+texture = ExtResource("4_vlsqk")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -279,6 +298,9 @@ position = Vector2(1, -13)
 scale = Vector2(1.582, 1.73047)
 sprite_frames = SubResource("SpriteFrames_a0pp2")
 autoplay = "default"
+
+[node name="ColorRect" type="ColorRect" parent="Boss"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
 position = Vector2(0, 12.5)

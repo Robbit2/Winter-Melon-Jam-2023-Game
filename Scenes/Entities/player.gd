@@ -65,7 +65,6 @@ func shoot():
 	var bullet : Area2D = projectile.instantiate()
 	bullet.position = position
 	bullet.direction = look_dir
-	bullet.get_children()[1].flip_h = look_dir > 0.0
 	get_tree().get_root().add_child(bullet)
 
 func set_action(_action):
@@ -225,7 +224,6 @@ func _on_invincibility_timeout():
 
 func check_dead():
 	if health <= 0:
-		GlobalSignals.emit_signal("Died")
 		dead = true
 		Engine.time_scale = 0
 		death_screen.visible = true
@@ -242,7 +240,3 @@ func _on_sword_area_area_entered(area):
 		area.die()
 	elif "Boss" in area.name:
 		area.hit()
-
-
-func _on_teleporter_body_entered(body):
-	get_tree().change_scene_to_file("res://Scenes/leveltwo.tscn")
