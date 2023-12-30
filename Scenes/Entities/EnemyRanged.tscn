@@ -1,11 +1,29 @@
-[gd_scene load_steps=18 format=3 uid="uid://c21b5u7a3bg7d"]
+[gd_scene load_steps=24 format=3 uid="uid://c21b5u7a3bg7d"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/EnemyRanged.gd" id="1_uq0qb"]
 [ext_resource type="Texture2D" uid="uid://bid1baomsgi0e" path="res://kamart/Monsters_Creatures_Fantasy/Skeleton/Walk.png" id="2_1wiy7"]
+[ext_resource type="Texture2D" uid="uid://c1h1frms8ipkn" path="res://kamart/Monsters_Creatures_Fantasy/Skeleton/Death.png" id="2_pvw35"]
 [ext_resource type="Texture2D" uid="uid://dxbxoghwrudf7" path="res://kamart/Monsters_Creatures_Fantasy/Skeleton/Attack.png" id="2_q0e32"]
+[ext_resource type="AudioStream" uid="uid://bjbb3ckjpo5eg" path="res://kamart/Sounds/202102__spookymodem__rattling-bones.mp3" id="4_nt1ak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t427d"]
 size = Vector2(65, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv0jc"]
+atlas = ExtResource("2_pvw35")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duy1i"]
+atlas = ExtResource("2_pvw35")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rpmn"]
+atlas = ExtResource("2_pvw35")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw2g4"]
+atlas = ExtResource("2_pvw35")
+region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg5fy"]
 atlas = ExtResource("2_q0e32")
@@ -57,6 +75,29 @@ region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_er2nk"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv0jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duy1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rpmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw2g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw2g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw2g4")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xg5fy")
@@ -117,7 +158,7 @@ shape = SubResource("RectangleShape2D_t427d")
 position = Vector2(-6.99998, 3)
 scale = Vector2(1.72667, 1.70667)
 sprite_frames = SubResource("SpriteFrames_er2nk")
-animation = &"Shoot"
+animation = &"Death"
 autoplay = "Walk"
 
 [node name="FrontDetect" type="RayCast2D" parent="."]
@@ -131,11 +172,16 @@ collision_mask = 4
 
 [node name="Floor" type="RayCast2D" parent="."]
 position = Vector2(-20, 30)
-target_position = Vector2(0, 10)
+target_position = Vector2(0, 20)
 
 [node name="ShootCooldown" type="Timer" parent="."]
 process_callback = 0
 one_shot = true
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nt1ak")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

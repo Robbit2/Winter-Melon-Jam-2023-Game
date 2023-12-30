@@ -1,7 +1,7 @@
 extends Area2D
 
 # I'm not commenting all that
-@onready var sprite := $AnimatedSprite2D
+@onready var sprite = $AnimatedSprite2D
 
 @onready var path_BL : PathFollow2D = $"../PathBL/PathFollow"
 @onready var path_BR : PathFollow2D = $"../PathBR/PathFollow"
@@ -11,6 +11,12 @@ extends Area2D
 @onready var path_RL : PathFollow2D = $"../PathRL/PathFollow"
 
 @onready var danger : Timer = $Danger
+
+@onready var a_1 = $"../Audio/A1"
+@onready var a_2 = $"../Audio/A2"
+@onready var ab = $"../Audio/AB"
+@onready var wait = $"../Audio/Wait"
+
 
 var health := 15
 
@@ -58,6 +64,7 @@ var stateDict := {
 	STATE.LATTACK2 : "a2",
 	STATE.RATTACK2 : "a2",
 }
+var nstate_audio = {}
 
 # Timer block (should be a
 var wTimer := Timer.new() # wait
@@ -109,6 +116,19 @@ func _ready():
 		TRANSITIONS.RB : path_RB,
 		TRANSITIONS.RL : path_RL
 	}
+	
+	nstate_audio = {
+		STATE.BATTACK : ab,
+		STATE.BWAIT : wait,
+		STATE.BATTACK1 : a_1,
+		STATE.BATTACK2 : a_2,
+		STATE.LWAIT : wait,
+		STATE.LATTACK1 : a_1,
+		STATE.LATTACK2 : a_2,
+		STATE.RWAIT : wait,
+		STATE.RATTACK1 : a_1,
+		STATE.RATTACK2 : a_2
+	}
 
 func get_curr_Timer_Progress():
 	return 1.0 - timers[currTimer].time_left / timers[currTimer].wait_time
@@ -123,6 +143,7 @@ func _physics_process(delta):
 			currTimer = "t"
 			timers[currTimer].start()
 			currPath = transition
+			nstate_audio[next_state].play()
 		else:
 			if currPath != TRANSITIONS.BB and currPath != TRANSITIONS.LL and currPath != TRANSITIONS.RR:
 				transitionPathDict[currPath].progress_ratio = 1.0
@@ -138,9 +159,13 @@ func _physics_process(delta):
 	if action:
 		match state:
 			STATE.BATTACK:
+				sprite.flip_h = false
+				defendB()
 				attackB()
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BATTACK1:
+				sprite.flip_h = false
+				defendB()
 				attack1(0)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.LATTACK1:
@@ -150,6 +175,8 @@ func _physics_process(delta):
 				attack1(2)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.BATTACK2:
+				sprite.flip_h = false
+				defendB()
 				attack2(0)
 				sprite.modulate = Color(1.0, 1.0, 1.0)
 			STATE.LATTACK2:
@@ -233,6 +260,18 @@ func attackB():
 		get_tree().get_root().add_child(bullet)
 		r = fmod(r+120.0, 1280.0)
 		await get_tree().create_timer(0.03).timeout
+
+func defendB():
+	for i in range(4):
+		var bullet : Area2D = projectile.instantiate()
+		bullet.position = position + Vector2(-80.0, -80.0 + 40.0 * i)
+		bullet.direction = Vector2(0.0, 0.0)
+		get_tree().get_root().add_child(bullet)
+	for i in range(4):
+		var bullet : Area2D = projectile.instantiate()
+		bullet.position = position + Vector2(80.0, -80.0 + 40.0 * i)
+		bullet.direction = Vector2(0.0, 0.0)
+		get_tree().get_root().add_child(bullet)
 
 func hit():
 	health -= 1

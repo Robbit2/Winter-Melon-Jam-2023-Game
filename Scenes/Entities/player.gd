@@ -15,7 +15,7 @@ var swordbox_dist
 @onready var damage_sounds = [$DamageSoundA, $DamageSoundB, $DamageSoundC, $DamageSoundD]
 @onready var sword_sounds = [$SwordSoundA, $SwordSoundA]
 @onready var run_sound = $RunSoundA
-var curr_run_s := 0
+@onready var pickup = $Pickup
 
 @export var SPEED : float = 750.0
 @export var JUMP_VELOCITY : float = -800.0
@@ -65,7 +65,6 @@ func shoot():
 	var bullet : Area2D = projectile.instantiate()
 	bullet.position = position
 	bullet.direction = look_dir
-	bullet.get_children()[1].flip_h = look_dir > 0.0
 	get_tree().get_root().add_child(bullet)
 
 func set_action(_action):
@@ -78,11 +77,14 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout
 	GlobalSignals.emit_signal("PlayerReady", self)
 	if unlocked_dash:
-		getCharm()
+		GlobalSignals.emit_signal("CharmPickup", "Dash")
+		charms += 1
 	if unlocked_dj:
-		getCharm()
+		GlobalSignals.emit_signal("CharmPickup", "Double Jump")
+		charms += 1
 	if unlocked_bow:
-		getCharm()
+		GlobalSignals.emit_signal("CharmPickup", "Bow")
+		charms += 1
 
 func _process(_delta):
 	# flips the sprite if player is moving left and unflips if moving right
@@ -209,6 +211,7 @@ func hit(enemy_pos_x : float, knockback : float):
 
 func getCharm():
 	charms += 1
+	pickup.play()
 	match(charms):
 		1:
 			unlocked_dj = true
@@ -225,7 +228,6 @@ func _on_invincibility_timeout():
 
 func check_dead():
 	if health <= 0:
-		GlobalSignals.emit_signal("Died")
 		dead = true
 		Engine.time_scale = 0
 		death_screen.visible = true
@@ -246,3 +248,12 @@ func _on_sword_area_area_entered(area):
 
 func _on_teleporter_body_entered(body):
 	get_tree().change_scene_to_file("res://Scenes/leveltwo.tscn")
+
+
+
+func _on_teleporter_2_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/levelthree.tscn")
+
+
+func _on_teleporter_3_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/Rooms/Boss_T.tscn")

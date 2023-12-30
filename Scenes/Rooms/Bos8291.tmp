@@ -1,20 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://gqocd4ygf6dl"]
+[gd_scene load_steps=35 format=3 uid="uid://gqocd4ygf6dl"]
 
 [ext_resource type="PackedScene" uid="uid://cmfnri103q43r" path="res://Scenes/Entities/player.tscn" id="1_n5owg"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossCamera.gd" id="1_xxfpu"]
-[ext_resource type="Texture2D" uid="uid://cuwutygp2rbo2" path="res://kamart/Free Pixel Art Forest/Preview/Background.png" id="2_5jkw4"]
 [ext_resource type="TileSet" uid="uid://gb2uik1t1m8y" path="res://Assets/Tilesets/Moss.tres" id="2_wjdly"]
 [ext_resource type="Script" path="res://Scenes/HealthLabel.gd" id="3_6pnal"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossHealthLabel.gd" id="3_er7lx"]
-[ext_resource type="Texture2D" uid="uid://ccb34s62omn3l" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0008_3.png" id="3_je8vp"]
 [ext_resource type="Script" path="res://Scenes/Menu button.gd" id="4_lbnj7"]
-[ext_resource type="Texture2D" uid="uid://be8ofcbbvkhtd" path="res://kamart/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="4_vlsqk"]
 [ext_resource type="Script" path="res://Scenes/Rooms/BossT.gd" id="6_uhsit"]
-[ext_resource type="Texture2D" uid="uid://dptdt0puxukrv" path="res://characters/Boss/EVil Wizard 2/Sprites/Idle.png" id="8_q526h"]
-[ext_resource type="AudioStream" uid="uid://cwr2mp7e4acj8" path="res://Assets/Boss/Sounds/Arcane Beacon.wav" id="9_syy1n"]
-[ext_resource type="AudioStream" uid="uid://c3tcadyaes4fw" path="res://Assets/Boss/Sounds/Activate Glyph Forcefield.wav" id="10_5075t"]
-[ext_resource type="AudioStream" uid="uid://1glgbalwdyrf" path="res://Assets/Boss/Sounds/Arcane Wind Chime Gust.wav" id="11_tueu8"]
-[ext_resource type="AudioStream" uid="uid://r0dy28yir31s" path="res://Assets/Boss/Sounds/UI Message Appear 01.wav" id="12_vnwh3"]
+[ext_resource type="Texture2D" uid="uid://dptdt0puxukrv" path="res://Assets/Boss/EVil Wizard 2/Sprites/Idle.png" id="8_q526h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jr3sc"]
 bg_color = Color(0.890196, 0.247059, 0.180392, 0.690196)
@@ -84,7 +77,63 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpxky"]
-size = Vector2(46, 93)
+size = Vector2(88, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ee5o"]
+region = Rect2(54, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hskco"]
+region = Rect2(204, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm50a"]
+region = Rect2(354, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce4l4"]
+region = Rect2(504, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og4ll"]
+region = Rect2(654, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1hbq"]
+region = Rect2(804, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hc8b"]
+region = Rect2(954, 52, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p3tj"]
+region = Rect2(1104, 52, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqjsl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ee5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hskco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm50a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce4l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og4ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1hbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hc8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p3tj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_j1viu"]
 _data = {
@@ -124,21 +173,6 @@ point_count = 2
 
 [node name="BossT" type="Node2D"]
 script = ExtResource("1_xxfpu")
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(79, -339)
-scale = Vector2(2.25536, 2.25536)
-texture = ExtResource("2_5jkw4")
-
-[node name="Layer00083" type="Sprite2D" parent="."]
-position = Vector2(11, -596)
-scale = Vector2(2.94128, 2.94128)
-texture = ExtResource("3_je8vp")
-
-[node name="Layer00018" type="Sprite2D" parent="Layer00083"]
-position = Vector2(5.4398, 129.195)
-scale = Vector2(0.534162, 0.496476)
-texture = ExtResource("4_vlsqk")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -247,6 +281,7 @@ sprite_frames = SubResource("SpriteFrames_a0pp2")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
+position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_mpxky")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -254,6 +289,12 @@ debug_color = Color(1, 0, 0, 0.419608)
 process_callback = 0
 wait_time = 2.5
 one_shot = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Boss"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_iqjsl")
+autoplay = "default"
+frame_progress = 0.9279
 
 [node name="PathBL" type="Path2D" parent="."]
 visible = false
@@ -314,28 +355,6 @@ position = Vector2(520, 268)
 rotates = false
 cubic_interp = false
 loop = false
-
-[node name="Audio" type="Node" parent="."]
-
-[node name="A1" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("9_syy1n")
-volume_db = -15.0
-bus = &"SFX"
-
-[node name="A2" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("10_5075t")
-volume_db = -20.0
-bus = &"SFX"
-
-[node name="AB" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("11_tueu8")
-volume_db = -20.0
-bus = &"SFX"
-
-[node name="Wait" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("12_vnwh3")
-volume_db = -10.0
-bus = &"SFX"
 
 [connection signal="pressed" from="UI/DeathScreen/Menu button" to="UI/DeathScreen/Menu button" method="_on_pressed"]
 [connection signal="body_entered" from="Boss" to="Boss" method="_on_body_entered"]

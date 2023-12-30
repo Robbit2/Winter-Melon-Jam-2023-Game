@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://cmfnri103q43r"]
+[gd_scene load_steps=95 format=3 uid="uid://cmfnri103q43r"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/player.gd" id="1_ul8et"]
 [ext_resource type="Texture2D" uid="uid://sq26os2v7vg0" path="res://Assets/Player/redhoodSheetAlt.png" id="2_a1sb2"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bq5fgqxaajko" path="res://Assets/Player/Sounds/Voice_Female_V2_Hit_Short_Mono_04.wav" id="9_jih67"]
 [ext_resource type="AudioStream" uid="uid://10wc6igqhunb" path="res://Assets/Player/Sounds/Footsteps_Walk_Grass_Mono_05.wav" id="15_sflyw"]
 [ext_resource type="AudioStream" uid="uid://df3h6yre1drkn" path="res://Assets/Player/Sounds/Ambiance_Wind_Forest_Loop_Stereo.mp3" id="16_rkwn4"]
+[ext_resource type="AudioStream" uid="uid://bj7o2k2ek6xfp" path="res://kamart/Sounds/FUI Navigation Tone Stereo Flutter.wav" id="17_cy1tl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yggjx"]
 atlas = ExtResource("2_a1sb2")
@@ -620,63 +621,68 @@ one_shot = true
 
 [node name="BowSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_u7vqj")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="JumpSoundA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_bbw0l")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="JumpSoundB" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mjqog")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="JumpSoundC" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tmu6r")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="DamageSoundA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_sg5n4")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="DamageSoundB" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_d586c")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="DamageSoundC" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_2ax6t")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="DamageSoundD" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_jih67")
-volume_db = -3.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="SwordSoundA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_0cxx6")
-volume_db = -5.0
+volume_db = -12.0
 bus = &"SFX"
 
 [node name="SwordSoundB" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0ia7l")
-volume_db = -5.0
+volume_db = -12.0
 bus = &"SFX"
 
 [node name="RunSoundA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_sflyw")
-volume_db = -10.0
+volume_db = -20.0
 bus = &"SFX"
 
 [node name="Ambiance" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_rkwn4")
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
+bus = &"SFX"
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_cy1tl")
+volume_db = -10.0
 bus = &"SFX"
 
 [connection signal="area_entered" from="Sprite/SwordArea" to="." method="_on_sword_area_area_entered"]
