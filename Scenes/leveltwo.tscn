@@ -79,6 +79,7 @@ position = Vector2(3306, 185)
 [node name="EnemyBasic14" parent="." instance=ExtResource("5_ruufs")]
 position = Vector2(3564, 184)
 
+
 [node name="EnemyRanged" parent="." instance=ExtResource("6_aervd")]
 position = Vector2(2282, 219)
 
@@ -184,6 +185,9 @@ script = ExtResource("12_eng53")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2"]
 position = Vector2(5642.5, 230)
 shape = SubResource("RectangleShape2D_c3684")
+
+[node name="Charm3" parent="." instance=ExtResource("11_ckod8")]
+position = Vector2(1351, -156)
 
 [node name="Charm3" parent="." instance=ExtResource("11_ckod8")]
 position = Vector2(1351, -156)

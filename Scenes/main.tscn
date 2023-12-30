@@ -39,10 +39,10 @@ texture = ExtResource("2_v4ssi")
 
 [node name="BGTrees2" type="TextureRect" parent="BGColor"]
 layout_mode = 0
-offset_left = 1761.45
-offset_top = -65.1875
-offset_right = 2689.45
-offset_bottom = 727.812
+offset_left = 2037.46
+offset_top = -68.8861
+offset_right = 2965.46
+offset_bottom = 724.114
 scale = Vector2(1.05072, 1.05072)
 texture = ExtResource("2_v4ssi")
 
@@ -62,11 +62,14 @@ position = Vector2(867, 122)
 [node name="EnemyBasic2" parent="." instance=ExtResource("3_dpc6p")]
 position = Vector2(3595, 634)
 
+[node name="EnemyBasic3" parent="." instance=ExtResource("3_dpc6p")]
+position = Vector2(3344, 638)
+
 [node name="EnemyRanged" parent="." instance=ExtResource("7_jmnrv")]
-position = Vector2(1507, 160)
+position = Vector2(2266, 214)
 
 [node name="EnemyRanged2" parent="." instance=ExtResource("7_jmnrv")]
-position = Vector2(4143, 328)
+position = Vector2(3645, -565)
 
 [node name="Smoke Puff" parent="." instance=ExtResource("3_0n4j8")]
 visible = false
